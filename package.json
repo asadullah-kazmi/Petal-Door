@@ -1,0 +1,17 @@
+{
+  "name": "petaldoor-shopify-theme",
+  "private": true,
+  "version": "1.0.0",
+  "description": "PetalDoor Shopify theme based on the store's Horizon theme.",
+  "scripts": {
+    "dev": "shopify theme dev --environment development",
+    "check": "shopify theme check",
+    "info": "shopify theme info --environment development",
+    "pull": "shopify theme pull --environment development",
+    "share": "shopify theme share --environment development"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
+
