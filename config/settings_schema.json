@@ -2116,5 +2116,82 @@
         "default": "equal-width-buttons"
       }
     ]
+  },
+  {
+    "name": "Delivery",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Delivery details customers choose in the cart. They are saved on the order as cart attributes (Delivery emirate, date, time, gift message)."
+      },
+      {
+        "type": "checkbox",
+        "id": "delivery_enabled",
+        "label": "Ask for delivery details in the cart",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "delivery_required",
+        "label": "Require emirate, date and time before checkout",
+        "default": true
+      },
+      {
+        "type": "textarea",
+        "id": "delivery_emirates",
+        "label": "Emirates",
+        "default": "Dubai|0\nAbu Dhabi|0\nSharjah|0\nAjman|0\nUmm Al Quwain|1\nRas Al Khaimah|1\nFujairah|1",
+        "info": "One per line: Name|earliest day. 0 = same-day available, 1 = next day onwards."
+      },
+      {
+        "type": "textarea",
+        "id": "delivery_slots",
+        "label": "Time slots",
+        "default": "Morning (9am – 1pm)|9|13\nAfternoon (1pm – 5pm)|13|17\nEvening (5pm – 9pm)|17|21\nLate evening (9pm – 11pm)|21|23",
+        "info": "One per line: Label|start hour|end hour (24h, UAE time)."
+      },
+      {
+        "type": "range",
+        "id": "delivery_lead_hours",
+        "label": "Preparation time before a slot ends",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "unit": "h",
+        "default": 2,
+        "info": "A same-day slot can be booked until this many hours before it ends."
+      },
+      {
+        "type": "range",
+        "id": "delivery_max_days",
+        "label": "How far ahead customers can book",
+        "min": 7,
+        "max": 90,
+        "step": 1,
+        "unit": "d",
+        "default": 30
+      },
+      {
+        "type": "textarea",
+        "id": "delivery_closed_dates",
+        "label": "Closed dates",
+        "info": "One date per line, e.g. 2026-12-02"
+      },
+      {
+        "type": "range",
+        "id": "gift_message_max",
+        "label": "Gift message character limit",
+        "min": 100,
+        "max": 500,
+        "step": 10,
+        "default": 250
+      },
+      {
+        "type": "checkbox",
+        "id": "delivery_whatsapp_updates",
+        "label": "Offer order updates by WhatsApp",
+        "default": true
+      }
+    ]
   }
 ]

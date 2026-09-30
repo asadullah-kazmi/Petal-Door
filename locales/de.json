@@ -8,6 +8,30 @@
  * ------------------------------------------------------------
  */
 {
+  "delivery": {
+    "heading": "Delivery details",
+    "emirate_label": "1. Choose emirate",
+    "emirate_placeholder": "Select an emirate",
+    "same_day_unavailable": "Same-day delivery isn't available for this emirate. The earliest date is shown below.",
+    "date_label": "2. Pick a date",
+    "today": "Today",
+    "tomorrow": "Tomorrow",
+    "other_date": "Choose date",
+    "date_input_label": "Delivery date",
+    "closed": "We're closed on this date. Please choose another.",
+    "time_label": "3. Pick a time slot",
+    "pick_date_first": "Pick a delivery date to see available time slots.",
+    "slot_unavailable": "Unavailable",
+    "message_label": "Gift message",
+    "message_placeholder": "Write your message and we'll handwrite it on a complimentary card.",
+    "message_hint": "Add your name if you'd like it on the card.",
+    "characters_left": "{{ count }} left",
+    "updates_label": "Send order updates by",
+    "updates_whatsapp": "WhatsApp",
+    "updates_email": "Email",
+    "error_incomplete": "Please choose an emirate, delivery date and time slot to continue.",
+    "express_hint": "Choose your delivery details to unlock express checkout."
+  },
   "blocks": {
     "load_video": "Video laden: {{ description }}",
     "sold_out": "Ausverkauft",

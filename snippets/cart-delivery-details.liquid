@@ -1,0 +1,362 @@
+{%- doc -%}
+  Renders the delivery details form (emirate, date, time slot, gift message) in the cart.
+  Values are saved as cart attributes, so they appear on the order in the Shopify admin.
+  Options come from the "Delivery" theme settings.
+
+  @example
+  {% render 'cart-delivery-details' %}
+{%- enddoc -%}
+
+{%- liquid
+  assign attrs = cart.attributes
+  assign selected_emirate = attrs['Delivery Emirate']
+  assign selected_date = attrs['Delivery Date']
+  assign selected_time = attrs['Delivery Time']
+  assign selected_updates = attrs['Order Updates'] | default: 'WhatsApp'
+  assign emirate_lines = settings.delivery_emirates | newline_to_br | split: '<br />'
+  assign slot_lines = settings.delivery_slots | newline_to_br | split: '<br />'
+  assign closed_dates = settings.delivery_closed_dates | newline_to_br | split: '<br />' | join: ',' | strip_newlines | remove: ' '
+-%}
+
+<script src="{{ 'cart-delivery-details.js' | asset_url }}" type="module" fetchpriority="low"></script>
+
+<cart-delivery-details
+  class="delivery-details"
+  data-required="{{ settings.delivery_required }}"
+  data-lead-hours="{{ settings.delivery_lead_hours }}"
+  data-max-days="{{ settings.delivery_max_days }}"
+  data-closed-dates="{{ closed_dates | escape }}"
+  data-chars-left="{{ 'delivery.characters_left' | t: count: '[count]' | escape }}"
+>
+  <h2 class="delivery-details__heading h5">{{ 'delivery.heading' | t }}</h2>
+
+  <div class="delivery-details__step">
+    <label class="delivery-details__label" for="DeliveryEmirate">{{ 'delivery.emirate_label' | t }}</label>
+    <div class="delivery-details__select">
+      <select
+        id="DeliveryEmirate"
+        name="attributes[Delivery Emirate]"
+        form="cart-form"
+        ref="emirate"
+        on:change="/onEmirateChange"
+      >
+        <option value="" disabled {% if selected_emirate == blank %}selected{% endif %}>
+          {{- 'delivery.emirate_placeholder' | t -}}
+        </option>
+        {%- for line in emirate_lines -%}
+          {%- assign parts = line | strip | split: '|' -%}
+          {%- assign name = parts[0] | strip -%}
+          {%- if name != blank -%}
+            <option
+              value="{{ name | escape }}"
+              data-min-days="{{ parts[1] | strip | default: 0 }}"
+              {% if name == selected_emirate %}selected{% endif %}
+            >
+              {{- name -}}
+            </option>
+          {%- endif -%}
+        {%- endfor -%}
+      </select>
+      {{- 'icon-caret.svg' | inline_asset_content -}}
+    </div>
+    <p class="delivery-details__hint" ref="emirateHint" hidden>{{ 'delivery.same_day_unavailable' | t }}</p>
+  </div>
+
+  <fieldset class="delivery-details__step">
+    <legend class="delivery-details__label">{{ 'delivery.date_label' | t }}</legend>
+    <div class="delivery-details__chips">
+      <label class="delivery-details__chip">
+        <input type="radio" name="delivery-date-choice" value="0" ref="dateToday" on:change="/onDateChoice">
+        <span>{{ 'delivery.today' | t }}</span>
+      </label>
+      <label class="delivery-details__chip">
+        <input type="radio" name="delivery-date-choice" value="1" ref="dateTomorrow" on:change="/onDateChoice">
+        <span>{{ 'delivery.tomorrow' | t }}</span>
+      </label>
+      <label class="delivery-details__chip delivery-details__chip--date">
+        <input type="radio" name="delivery-date-choice" value="other" ref="dateOther" on:change="/onDateChoice">
+        <span>{{ 'delivery.other_date' | t }}</span>
+      </label>
+    </div>
+    <input
+      class="delivery-details__date"
+      type="date"
+      name="attributes[Delivery Date]"
+      form="cart-form"
+      value="{{ selected_date | escape }}"
+      aria-label="{{ 'delivery.date_input_label' | t }}"
+      ref="date"
+      on:change="/onDateInput"
+      hidden
+    >
+    <p class="delivery-details__error" ref="dateError" hidden>{{ 'delivery.closed' | t }}</p>
+  </fieldset>
+
+  <fieldset class="delivery-details__step">
+    <legend class="delivery-details__label">{{ 'delivery.time_label' | t }}</legend>
+    <p class="delivery-details__hint delivery-details__slots-hint">{{ 'delivery.pick_date_first' | t }}</p>
+    <div class="delivery-details__slots">
+      {%- for line in slot_lines -%}
+        {%- assign parts = line | strip | split: '|' -%}
+        {%- assign label = parts[0] | strip -%}
+        {%- if label != blank -%}
+          <label class="delivery-details__slot">
+            <input
+              type="radio"
+              name="attributes[Delivery Time]"
+              form="cart-form"
+              value="{{ label | escape }}"
+              data-start="{{ parts[1] | strip }}"
+              data-end="{{ parts[2] | strip }}"
+              ref="slots[]"
+              on:change="/onChange"
+              {% if label == selected_time %}checked{% endif %}
+            >
+            <span class="delivery-details__slot-label">{{ label }}</span>
+            <span class="delivery-details__slot-status">{{ 'delivery.slot_unavailable' | t }}</span>
+          </label>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </fieldset>
+
+  <div class="delivery-details__step">
+    <label class="delivery-details__label" for="GiftMessage">{{ 'delivery.message_label' | t }}</label>
+    <textarea
+      id="GiftMessage"
+      class="delivery-details__textarea"
+      name="attributes[Gift Message]"
+      form="cart-form"
+      rows="3"
+      maxlength="{{ settings.gift_message_max }}"
+      placeholder="{{ 'delivery.message_placeholder' | t }}"
+      ref="message"
+      on:input="/onMessageInput"
+    >{{ attrs['Gift Message'] }}</textarea>
+    <p class="delivery-details__hint delivery-details__hint--row">
+      <span>{{ 'delivery.message_hint' | t }}</span>
+      <span ref="charsLeft" aria-live="polite"></span>
+    </p>
+  </div>
+
+  {%- if settings.delivery_whatsapp_updates -%}
+    <fieldset class="delivery-details__step">
+      <legend class="delivery-details__label">{{ 'delivery.updates_label' | t }}</legend>
+      <div class="delivery-details__chips">
+        {%- assign update_options = 'WhatsApp,Email' | split: ',' -%}
+        {%- for option in update_options -%}
+          {%- assign option_key = option | downcase | prepend: 'delivery.updates_' -%}
+          <label class="delivery-details__chip">
+            <input
+              type="radio"
+              name="attributes[Order Updates]"
+              form="cart-form"
+              value="{{ option }}"
+              on:change="/onChange"
+              {% if option == selected_updates %}checked{% endif %}
+            >
+            <span>{{ option_key | t }}</span>
+          </label>
+        {%- endfor -%}
+      </div>
+    </fieldset>
+  {%- endif -%}
+
+  <p class="delivery-details__error" ref="error" role="alert" hidden>{{ 'delivery.error_incomplete' | t }}</p>
+  <p class="delivery-details__hint delivery-details__express-hint">{{ 'delivery.express_hint' | t }}</p>
+</cart-delivery-details>
+
+{% stylesheet %}
+  .delivery-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-lg, 20px);
+    padding: var(--padding-lg, 20px);
+    margin-block: var(--margin-md, 16px);
+    border-radius: var(--style-border-radius-popover, 16px);
+    background: rgb(var(--color-foreground-rgb) / 0.03);
+    border: 1px solid rgb(var(--color-foreground-rgb) / var(--opacity-10-25, 0.12));
+  }
+
+  .delivery-details__heading {
+    margin: 0;
+  }
+
+  .delivery-details__step {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    min-width: 0;
+  }
+
+  .delivery-details__label {
+    padding: 0;
+    font-weight: 600;
+    font-size: var(--font-size--sm, 0.875rem);
+  }
+
+  .delivery-details__select {
+    position: relative;
+  }
+
+  .delivery-details__select select,
+  .delivery-details__date,
+  .delivery-details__textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px 14px;
+    border: var(--style-border-width-inputs, 1px) solid var(--color-input-border, rgb(var(--color-foreground-rgb) / 0.2));
+    border-radius: var(--style-border-radius-inputs, 12px);
+    background: var(--color-input-background, #fff);
+    color: var(--color-input-text, inherit);
+    font: inherit;
+    font-size: var(--font-size--sm, 0.875rem);
+  }
+
+  .delivery-details__select select {
+    appearance: none;
+    padding-inline-end: 40px;
+    cursor: pointer;
+  }
+
+  .delivery-details__select svg {
+    position: absolute;
+    inset-inline-end: 14px;
+    top: 50%;
+    width: 10px;
+    translate: 0 -50%;
+    pointer-events: none;
+  }
+
+  .delivery-details__textarea {
+    resize: vertical;
+    min-height: 88px;
+  }
+
+  .delivery-details__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .delivery-details__chip,
+  .delivery-details__slot {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .delivery-details__chip input,
+  .delivery-details__slot input {
+    position: absolute;
+    opacity: 0;
+    inset: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+
+  .delivery-details__chip span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 0 16px;
+    border-radius: 999px;
+    border: 1px solid rgb(var(--color-foreground-rgb) / 0.2);
+    background: var(--color-input-background, #fff);
+    font-size: var(--font-size--sm, 0.875rem);
+    transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+  }
+
+  .delivery-details__slots {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 8px;
+  }
+
+  .delivery-details__slot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 8px 14px;
+    border-radius: var(--style-border-radius-inputs, 12px);
+    border: 1px solid rgb(var(--color-foreground-rgb) / 0.2);
+    background: var(--color-input-background, #fff);
+    font-size: var(--font-size--sm, 0.875rem);
+  }
+
+  .delivery-details__slot-status {
+    display: none;
+    font-size: 0.75rem;
+    opacity: 0.7;
+  }
+
+  .delivery-details__chip input:checked + span,
+  .delivery-details__slot:has(input:checked) {
+    border-color: var(--color-primary-button-background, currentColor);
+    background: var(--color-primary-button-background, currentColor);
+    color: var(--color-primary-button-text, #fff);
+  }
+
+  .delivery-details__chip input:focus-visible + span,
+  .delivery-details__slot:has(input:focus-visible) {
+    outline: 2px solid var(--color-primary-button-background, currentColor);
+    outline-offset: 2px;
+  }
+
+  .delivery-details__chip:has(input:disabled),
+  .delivery-details__slot:has(input:disabled) {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+
+  .delivery-details__slot:has(input:disabled) .delivery-details__slot-status {
+    display: inline;
+  }
+
+  .delivery-details[data-no-date] .delivery-details__slot:has(input) .delivery-details__slot-status {
+    display: none;
+  }
+
+  .delivery-details__hint {
+    margin: 0;
+    font-size: 0.75rem;
+    opacity: 0.75;
+  }
+
+  .delivery-details__hint--row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .delivery-details__error {
+    margin: 0;
+    font-size: var(--font-size--sm, 0.875rem);
+    color: var(--color-error, #b3261e);
+  }
+
+  .delivery-details[data-invalid] {
+    border-color: var(--color-error, #b3261e);
+  }
+
+  .delivery-details__express-hint,
+  .delivery-details__slots-hint {
+    display: none;
+  }
+
+  .delivery-details[data-no-date] .delivery-details__slots-hint {
+    display: block;
+  }
+
+  .delivery-details[data-required='true']:not([data-complete]) .delivery-details__express-hint {
+    display: block;
+  }
+
+  .delivery-details[data-required='true']:not([data-complete]) ~ .cart__ctas .additional-checkout-buttons {
+    display: none;
+  }
+{% endstylesheet %}

@@ -257,6 +257,10 @@
   </div>
 </div>
 
+{%- if settings.delivery_enabled and cart.item_count > 0 -%}
+  {% render 'cart-delivery-details' %}
+{%- endif -%}
+
 <div class="cart__ctas">
   <button
     type="submit"
