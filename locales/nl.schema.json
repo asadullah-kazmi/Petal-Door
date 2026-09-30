@@ -9,6 +9,7 @@
  */
 {
   "names": {
+    "delivery_countdown": "Delivery countdown",
     "404": "404",
     "custom_section": "Aangepaste sectie",
     "icon": "Pictogram",
@@ -171,6 +172,10 @@
     "disclosures": "Toelichtingen"
   },
   "settings": {
+    "accent_color": "Accent color",
+    "text_after_cutoff": "Message after cutoff",
+    "text_before_cutoff": "Message before cutoff",
+    "same_day_cutoff_hour": "Same-day cutoff hour",
     "autoplay": "Automatisch afspelen",
     "background": "Achtergrond",
     "border_radius": "Hoekradius",
@@ -868,6 +873,7 @@
     "input_field": "Invoerveld"
   },
   "content": {
+    "delivery_countdown_info": "Shows how long is left to order for same-day delivery, counted in UAE time (GST).",
     "background_video": "Achtergrondvideo",
     "describe_the_video_for": "Geef een beschrijving van de video voor klanten die schermlezers gebruiken. [Meer informatie](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#video-block)",
     "width_is_automatically_optimized": "Breedte wordt automatisch geoptimaliseerd voor mobiel.",
@@ -1091,6 +1097,8 @@
     "disclosures": "Toelichtingen"
   },
   "info": {
+    "countdown_placeholder": "Use [countdown] where the remaining time should appear.",
+    "same_day_cutoff_hour": "Hour of the day (24h, UAE time) after which same-day orders close.",
     "carousel_layout_on_mobile": "Op mobiel wordt altijd een carrousel gebruikt",
     "video_alt_text": "Beschrijf de video voor gebruikers van ondersteunende technologie",
     "video_autoplay": "Video's worden standaard gedempt",

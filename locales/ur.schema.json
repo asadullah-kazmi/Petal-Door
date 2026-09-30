@@ -30,6 +30,7 @@
     "text": "ٹیکسٹ"
   },
   "content": {
+    "delivery_countdown_info": "Shows how long is left to order for same-day delivery, counted in UAE time (GST).",
     "visible_if_collection_has_more_products": "اگر کلیکشن میں دکھائے گئے پروڈکٹ سے زیادہ پروڈکٹ ہوں تو ظاہر ہوتا ہے",
     "advanced": "ایڈوانسڈ",
     "appearance": "ظاہری شکل",
@@ -215,6 +216,8 @@
     "work_quickly_to_ship": "<p>ہم جلد از جلد آپ کا آرڈر شپ کرنے کے لیے تیزی سے کام کریں گے۔ آپ کا آرڈر شپ ہونے کے بعد، آپ کو مزید معلومات کے ساتھ ایک ای میل موصول ہوگی۔ آپ کے مقام کے لحاظ سے ترسیل کے اوقات مختلف ہو سکتے ہیں۔</p>"
   },
   "info": {
+    "countdown_placeholder": "Use [countdown] where the remaining time should appear.",
+    "same_day_cutoff_hour": "Hour of the day (24h, UAE time) after which same-day orders close.",
     "actions_display_style": "موبائل پر ہمیشہ آئیکن استعمال ہوتے ہیں",
     "applies_on_image_only": "صرف تصاویر پر لاگو ہوتا ہے",
     "aspect_ratio_adjusted": "کچھ لے آؤٹ میں ایڈجسٹ کیا گیا",
@@ -244,6 +247,7 @@
     "media_type_info": "خصوصیات آپ کے مینو کے لنک سے پُر کی گئی ہیں"
   },
   "names": {
+    "delivery_countdown": "Delivery countdown",
     "column": "کالم",
     "product_title": "پروڈکٹ کا ٹائٹل",
     "custom_liquid": "کسٹم Liquid",
@@ -688,6 +692,10 @@
     "below_media": "میڈیا کے نیچے"
   },
   "settings": {
+    "accent_color": "Accent color",
+    "text_after_cutoff": "Message after cutoff",
+    "text_before_cutoff": "Message before cutoff",
+    "same_day_cutoff_hour": "Same-day cutoff hour",
     "accordion": "ایکارڈین",
     "account": "اکاؤنٹ",
     "actions_display_style": "مینو کا اسٹائل",

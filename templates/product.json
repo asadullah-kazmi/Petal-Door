@@ -34,19 +34,19 @@
           "type": "_product-media-gallery",
           "static": true,
           "settings": {
-            "media_presentation": "grid",
+            "media_presentation": "carousel",
             "media_columns": "two",
             "image_gap": 4,
             "large_first_image": false,
-            "slideshow_controls_style": "counter",
+            "slideshow_controls_style": "thumbnails",
             "slideshow_mobile_controls_style": "dots",
-            "thumbnail_position": "right",
+            "thumbnail_position": "left",
             "thumbnail_width": 44,
-            "thumbnail_radius": 0,
-            "aspect_ratio": "adapt",
+            "thumbnail_radius": 12,
+            "aspect_ratio": "1/1.25",
             "constrain_to_viewport": true,
-            "media_fit": "contain",
-            "media_radius": 0,
+            "media_fit": "cover",
+            "media_radius": 16,
             "extend_media": false,
             "zoom": true,
             "video_loop": false,
@@ -68,7 +68,7 @@
             "custom_width_mobile": 100,
             "height": "fit",
             "details_position": "flex-start",
-            "gap": 28,
+            "gap": 24,
             "sticky_details_desktop": true,
             "background_media": "none",
             "background_color": "",
@@ -96,7 +96,7 @@
                 "align_baseline": false,
                 "horizontal_alignment_flex_direction_column": "flex-start",
                 "vertical_alignment_flex_direction_column": "center",
-                "gap": 12,
+                "gap": 10,
                 "width": "fill",
                 "custom_width": 100,
                 "width_mobile": "fill",
@@ -124,6 +124,19 @@
                 "padding-inline-end": 0
               },
               "blocks": {
+                "text_pd_eyebrow": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Hand-tied in Dubai · Same-day delivery</p>",
+                    "type_preset": "custom",
+                    "width": "100%",
+                    "font": "var(--font-subheading--family)",
+                    "font_size": "0.75rem",
+                    "case": "uppercase",
+                    "letter_spacing": "loose",
+                    "text_color": "{{ settings.color_palette.color3 }}"
+                  }
+                },
                 "text_xrnftG": {
                   "type": "text",
                   "name": "t:names.product_title",
@@ -132,8 +145,8 @@
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "h3",
-                    "font": "var(--font-body--family)",
+                    "type_preset": "h2",
+                    "font": "var(--font-heading--family)",
                     "font_size": "1rem",
                     "line_height": "normal",
                     "letter_spacing": "normal",
@@ -155,16 +168,16 @@
                   "settings": {
                     "show_sale_price_first": true,
                     "show_installments": false,
-                    "show_tax_info": false,
-                    "type_preset": "paragraph",
+                    "show_tax_info": true,
+                    "type_preset": "custom",
                     "width": "100%",
                     "alignment": "left",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
+                    "font": "var(--font-subheading--family)",
+                    "font_size": "1.25rem",
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
-                    "text_color": "",
+                    "text_color": "{{ settings.color_palette.color3 }}",
                     "padding-block-start": 4,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
@@ -174,22 +187,10 @@
                 }
               },
               "block_order": [
+                "text_pd_eyebrow",
                 "text_xrnftG",
                 "price_tVjtKg"
               ]
-            },
-            "divider_VJhene": {
-              "type": "_divider",
-              "name": "t:names.divider",
-              "settings": {
-                "thickness": 1,
-                "corner_radius": "square",
-                "divider_color": "{{ settings.color_palette.color2 }}",
-                "width_percent": 100,
-                "padding-block-start": 0,
-                "padding-block-end": 0
-              },
-              "blocks": {}
             },
             "variant_picker_R3rGDr": {
               "type": "variant-picker",
@@ -212,6 +213,13 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "delivery_countdown_pd16": {
+              "type": "delivery-countdown",
+              "settings": {
+                "cutoff_hour": 20,
+                "icon": "stopwatch"
+              }
             },
             "buy_buttons_eYQEYi": {
               "type": "buy-buttons",
@@ -257,10 +265,7 @@
                   "type": "add-to-cart",
                   "static": true,
                   "settings": {
-                    "style_class": "button",
-                    "custom_button_background": "{{ settings.color_palette.foreground }}",
-                    "custom_button_text": "{{ settings.color_palette.background }}",
-                    "custom_button_border": "{{ settings.color_palette.background }}"
+                    "style_class": "button"
                   },
                   "blocks": {}
                 },
@@ -272,6 +277,134 @@
                 }
               },
               "block_order": []
+            },
+            "group_pd17": {
+              "type": "group",
+              "settings": {
+                "content_direction": "row",
+                "vertical_on_mobile": false,
+                "horizontal_alignment": "space-between",
+                "vertical_alignment": "flex-start",
+                "gap": 8,
+                "background_color": "#FFFFFF",
+                "border": "solid",
+                "border_width": 1,
+                "border_color": "{{ settings.color_palette.color2 }}",
+                "border_radius": 16,
+                "padding-block-start": 16,
+                "padding-block-end": 16,
+                "padding-inline-start": 12,
+                "padding-inline-end": 12
+              },
+              "blocks": {
+                "group_pd07": {
+                  "type": "group",
+                  "settings": {
+                    "gap": 6,
+                    "horizontal_alignment_flex_direction_column": "center",
+                    "width": "fill"
+                  },
+                  "blocks": {
+                    "icon_pd01": {
+                      "type": "icon",
+                      "settings": {
+                        "icon": "truck",
+                        "width": 20
+                      }
+                    },
+                    "text_pd02": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Free delivery<br>all 7 Emirates</p>",
+                        "type_preset": "custom",
+                        "width": "100%",
+                        "font": "var(--font-body--family)",
+                        "font_size": "0.75rem",
+                        "line_height": "tight",
+                        "alignment": "center",
+                        "text_color": "{{ settings.color_palette.color1 }}"
+                      }
+                    }
+                  },
+                  "block_order": [
+                    "icon_pd01",
+                    "text_pd02"
+                  ]
+                },
+                "group_pd08": {
+                  "type": "group",
+                  "settings": {
+                    "gap": 6,
+                    "horizontal_alignment_flex_direction_column": "center",
+                    "width": "fill"
+                  },
+                  "blocks": {
+                    "icon_pd03": {
+                      "type": "icon",
+                      "settings": {
+                        "icon": "eye",
+                        "width": 20
+                      }
+                    },
+                    "text_pd04": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Photo before<br>delivery</p>",
+                        "type_preset": "custom",
+                        "width": "100%",
+                        "font": "var(--font-body--family)",
+                        "font_size": "0.75rem",
+                        "line_height": "tight",
+                        "alignment": "center",
+                        "text_color": "{{ settings.color_palette.color1 }}"
+                      }
+                    }
+                  },
+                  "block_order": [
+                    "icon_pd03",
+                    "text_pd04"
+                  ]
+                },
+                "group_pd09": {
+                  "type": "group",
+                  "settings": {
+                    "gap": 6,
+                    "horizontal_alignment_flex_direction_column": "center",
+                    "width": "fill"
+                  },
+                  "blocks": {
+                    "icon_pd05": {
+                      "type": "icon",
+                      "settings": {
+                        "icon": "heart",
+                        "width": 20
+                      }
+                    },
+                    "text_pd06": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Free handwritten<br>message card</p>",
+                        "type_preset": "custom",
+                        "width": "100%",
+                        "font": "var(--font-body--family)",
+                        "font_size": "0.75rem",
+                        "line_height": "tight",
+                        "alignment": "center",
+                        "text_color": "{{ settings.color_palette.color1 }}"
+                      }
+                    }
+                  },
+                  "block_order": [
+                    "icon_pd05",
+                    "text_pd06"
+                  ]
+                }
+              },
+              "block_order": [
+                "group_pd07",
+                "group_pd08",
+                "group_pd09"
+              ]
             },
             "text_aEtTtq": {
               "type": "text",
@@ -298,14 +431,98 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "accordion_pd18": {
+              "type": "accordion",
+              "settings": {
+                "icon": "plus",
+                "dividers": true,
+                "divider_color": "{{ settings.color_palette.color2 }}",
+                "type_preset": "h6"
+              },
+              "blocks": {
+                "accordion_row_pd13": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Delivery information",
+                    "icon": "truck",
+                    "open_by_default": false
+                  },
+                  "blocks": {
+                    "text_pd10": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Free same-day delivery to Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah and Umm Al Quwain when you order before our same-day cutoff. Choose your emirate, delivery date and time slot in the cart — exact-time delivery is available for a small fee.</p>",
+                        "type_preset": "rte",
+                        "width": "100%",
+                        "text_color": "{{ settings.color_palette.color1 }}"
+                      }
+                    }
+                  },
+                  "block_order": [
+                    "text_pd10"
+                  ]
+                },
+                "accordion_row_pd14": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Photo before delivery",
+                    "icon": "eye",
+                    "open_by_default": false
+                  },
+                  "blocks": {
+                    "text_pd11": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Once your arrangement is ready, our florist sends you a photo on WhatsApp or email so you can see exactly what will be delivered.</p>",
+                        "type_preset": "rte",
+                        "width": "100%",
+                        "text_color": "{{ settings.color_palette.color1 }}"
+                      }
+                    }
+                  },
+                  "block_order": [
+                    "text_pd11"
+                  ]
+                },
+                "accordion_row_pd15": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Flower care",
+                    "icon": "leaf",
+                    "open_by_default": false
+                  },
+                  "blocks": {
+                    "text_pd12": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Trim the stems at an angle and place them in fresh, cool water. Change the water every two days and keep your flowers away from direct sunlight, fruit and air-conditioning vents.</p>",
+                        "type_preset": "rte",
+                        "width": "100%",
+                        "text_color": "{{ settings.color_palette.color1 }}"
+                      }
+                    }
+                  },
+                  "block_order": [
+                    "text_pd12"
+                  ]
+                }
+              },
+              "block_order": [
+                "accordion_row_pd13",
+                "accordion_row_pd14",
+                "accordion_row_pd15"
+              ]
             }
           },
           "block_order": [
             "group_icgrde",
-            "divider_VJhene",
             "variant_picker_R3rGDr",
+            "delivery_countdown_pd16",
             "buy_buttons_eYQEYi",
-            "text_aEtTtq"
+            "group_pd17",
+            "text_aEtTtq",
+            "accordion_pd18"
           ]
         }
       },
@@ -315,28 +532,28 @@
       "settings": {
         "content_width": "content-center-aligned",
         "desktop_media_position": "left",
-        "equal_columns": false,
+        "equal_columns": true,
         "limit_details_width": false,
         "gap": 48,
         "enable_sticky_add_to_cart": true,
         "background_color": "{{ settings.color_palette.background }}",
-        "padding-block-start": 0,
-        "padding-block-end": 0
+        "padding-block-start": 24,
+        "padding-block-end": 48
       }
     },
-    "product_recommendations_qggXJq": {
+    "complete_the_gift": {
       "type": "product-recommendations",
       "blocks": {
         "text_cbcgyb": {
           "type": "text",
           "name": "t:names.header",
           "settings": {
-            "text": "<h3>You may also like </h3>",
+            "text": "<h2>Complete the gift</h2>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
-            "type_preset": "h4",
-            "font": "var(--font-body--family)",
+            "type_preset": "h3",
+            "font": "var(--font-heading--family)",
             "font_size": "1rem",
             "line_height": "normal",
             "letter_spacing": "normal",
@@ -375,12 +592,12 @@
               "type": "_product-card-gallery",
               "name": "t:names.product_card_media",
               "settings": {
-                "image_ratio": "adapt",
+                "image_ratio": "portrait",
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
                 "border_color": "",
-                "border_radius": 0,
+                "border_radius": 16,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -395,9 +612,9 @@
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.125rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
@@ -406,7 +623,149 @@
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
-                "padding-block-start": 4,
+                "padding-block-start": 8,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_gLWgA6": {
+              "type": "price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "text_color": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_card_gallery_DNizbJ",
+            "product_title_M7MJkb",
+            "price_gLWgA6"
+          ]
+        }
+      },
+      "block_order": [
+        "text_cbcgyb"
+      ],
+      "name": "Complete the gift",
+      "settings": {
+        "product": "{{ closest.product }}",
+        "recommendation_type": "complementary",
+        "layout_type": "carousel",
+        "carousel_on_mobile": false,
+        "max_products": 8,
+        "columns": 5,
+        "mobile_columns": "2",
+        "columns_gap": 20,
+        "rows_gap": 24,
+        "icons_style": "arrow",
+        "icons_shape": "circle",
+        "section_width": "page-width",
+        "gap": 32,
+        "background_color": "{{ settings.color_palette.color4 }}",
+        "padding-block-start": 56,
+        "padding-block-end": 56
+      }
+    },
+    "product_recommendations_qggXJq": {
+      "type": "product-recommendations",
+      "blocks": {
+        "text_cbcgyb": {
+          "type": "text",
+          "name": "t:names.header",
+          "settings": {
+            "text": "<h2>You may also like</h2>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h3",
+            "font": "var(--font-heading--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 8,
+            "background_color": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 8,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_card_gallery_DNizbJ": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "portrait",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 16,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_title_M7MJkb": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.125rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 8,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
@@ -455,20 +814,21 @@
         "max_products": 4,
         "columns": 4,
         "mobile_columns": "2",
-        "columns_gap": 12,
+        "columns_gap": 20,
         "rows_gap": 24,
         "icons_style": "arrow",
         "icons_shape": "none",
         "section_width": "page-width",
-        "gap": 28,
+        "gap": 32,
         "background_color": "{{ settings.color_palette.background }}",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-start": 56,
+        "padding-block-end": 56
       }
     }
   },
   "order": [
     "main",
+    "complete_the_gift",
     "product_recommendations_qggXJq"
   ]
 }

@@ -1,0 +1,159 @@
+<script
+  src="{{ 'delivery-countdown.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
+
+{% liquid
+  assign block_settings = block.settings
+  assign before_parts = block_settings.text_before | split: '[countdown]'
+%}
+
+<delivery-countdown
+  class="delivery-countdown"
+  data-cutoff-hour="{{ block_settings.cutoff_hour }}"
+  style="
+    --delivery-countdown-background: {{ block_settings.background_color }};
+    --delivery-countdown-text: {{ block_settings.text_color }};
+    --delivery-countdown-accent: {{ block_settings.accent_color }};
+    --delivery-countdown-radius: {{ block_settings.corner_radius }}px;
+  "
+  {{ block.shopify_attributes }}
+>
+  {% render 'icon-or-image',
+    icon: block_settings.icon,
+    image_upload: blank,
+    width: 20,
+    class_name: 'delivery-countdown__icon'
+  %}
+  <p class="delivery-countdown__message delivery-countdown__message--before" ref="before" hidden>
+    {{- before_parts[0] -}}
+    <strong class="delivery-countdown__time" ref="time"></strong>
+    {{- before_parts[1] -}}
+  </p>
+  <p class="delivery-countdown__message delivery-countdown__message--after" ref="after" hidden>
+    {{- block_settings.text_after -}}
+  </p>
+</delivery-countdown>
+
+{% stylesheet %}
+  .delivery-countdown {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 16px;
+    border-radius: var(--delivery-countdown-radius);
+    background: var(--delivery-countdown-background);
+    color: var(--delivery-countdown-text);
+    font-size: var(--font-size--sm, 0.875rem);
+    line-height: 1.4;
+  }
+
+  .delivery-countdown__icon {
+    flex-shrink: 0;
+    color: var(--delivery-countdown-accent);
+  }
+
+  .delivery-countdown__message {
+    margin: 0;
+  }
+
+  .delivery-countdown__message strong,
+  .delivery-countdown__time {
+    color: var(--delivery-countdown-accent);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .delivery-countdown:not([data-ready]) {
+    visibility: hidden;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:names.delivery_countdown",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:content.delivery_countdown_info"
+    },
+    {
+      "type": "range",
+      "id": "cutoff_hour",
+      "label": "t:settings.same_day_cutoff_hour",
+      "min": 8,
+      "max": 23,
+      "step": 1,
+      "default": 20,
+      "info": "t:info.same_day_cutoff_hour"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "text_before",
+      "label": "t:settings.text_before_cutoff",
+      "default": "Order within [countdown] for <strong>same-day delivery</strong>",
+      "info": "t:info.countdown_placeholder"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "text_after",
+      "label": "t:settings.text_after_cutoff",
+      "default": "Order now for delivery <strong>tomorrow</strong>"
+    },
+    {
+      "type": "select",
+      "id": "icon",
+      "label": "t:settings.icon",
+      "options": [
+        { "value": "none", "label": "t:options.none" },
+        { "value": "stopwatch", "label": "t:options.stopwatch" },
+        { "value": "truck", "label": "t:options.truck" },
+        { "value": "plane", "label": "t:options.plane" }
+      ],
+      "default": "stopwatch"
+    },
+    {
+      "type": "header",
+      "content": "t:content.appearance"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:settings.background_color",
+      "default": "{{ settings.color_palette.color4 }}"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:settings.text_color",
+      "default": "{{ settings.color_palette.foreground }}"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "t:settings.accent_color",
+      "default": "{{ settings.color_palette.color3 }}"
+    },
+    {
+      "type": "range",
+      "id": "corner_radius",
+      "label": "t:settings.corner_radius",
+      "min": 0,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:names.delivery_countdown",
+      "category": "t:categories.product"
+    }
+  ]
+}
+{% endschema %}

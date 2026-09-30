@@ -30,6 +30,7 @@
     "text": "טקסט"
   },
   "content": {
+    "delivery_countdown_info": "Shows how long is left to order for same-day delivery, counted in UAE time (GST).",
     "visible_if_collection_has_more_products": "גלוי אם באוסף יש יותר מוצרים ממה שמוצג",
     "advanced": "מתקדם",
     "appearance": "מראה",
@@ -215,6 +216,8 @@
     "work_quickly_to_ship": "<p>נעבוד מהר כדי לשלוח את ההזמנה שלך בהקדם האפשרי. לאחר שההזמנה שלך תישלח, תקבל דוא&quot;ל עם מידע נוסף. זמני האספקה משתנים בהתאם למיקומך.</p>"
   },
   "info": {
+    "countdown_placeholder": "Use [countdown] where the remaining time should appear.",
+    "same_day_cutoff_hour": "Hour of the day (24h, UAE time) after which same-day orders close.",
     "actions_display_style": "תמיד נעשה שימוש בסמלים בנייד",
     "applies_on_image_only": "חל על תמונות בלבד",
     "aspect_ratio_adjusted": "מותאם בחלק מהפריסות",
@@ -244,6 +247,7 @@
     "media_type_info": "התכונות מאוכלסות מקישורי התפריט שלך"
   },
   "names": {
+    "delivery_countdown": "Delivery countdown",
     "column": "עמודה",
     "product_title": "כותרת מוצר",
     "custom_liquid": "Custom Liquid",
@@ -688,6 +692,10 @@
     "direction_top_start": "למעלה, התחלה"
   },
   "settings": {
+    "accent_color": "Accent color",
+    "text_after_cutoff": "Message after cutoff",
+    "text_before_cutoff": "Message before cutoff",
+    "same_day_cutoff_hour": "Same-day cutoff hour",
     "accordion": "אקורדיון",
     "account": "חשבון",
     "actions_display_style": "סגנון תפריט",

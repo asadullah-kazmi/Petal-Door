@@ -9,6 +9,7 @@
  */
 {
   "names": {
+    "delivery_countdown": "Delivery countdown",
     "404": "404",
     "colors": "調色盤",
     "custom_section": "自訂區段",
@@ -171,6 +172,10 @@
     "disclosures": "資訊揭露"
   },
   "settings": {
+    "accent_color": "Accent color",
+    "text_after_cutoff": "Message after cutoff",
+    "text_before_cutoff": "Message before cutoff",
+    "same_day_cutoff_hour": "Same-day cutoff hour",
     "alignment": "對齊",
     "autoplay": "自動播放",
     "background": "背景",
@@ -868,6 +873,7 @@
     "direction_top_start": "左上"
   },
   "content": {
+    "delivery_countdown_info": "Shows how long is left to order for same-day delivery, counted in UAE time (GST).",
     "advanced": "進階",
     "background_image": "背景圖片",
     "background_video": "背景影片",
@@ -1091,6 +1097,8 @@
     "disclosures": "資訊揭露"
   },
   "info": {
+    "countdown_placeholder": "Use [countdown] where the remaining time should appear.",
+    "same_day_cutoff_hour": "Hour of the day (24h, UAE time) after which same-day orders close.",
     "carousel_layout_on_mobile": "在行動裝置上一律使用輪播",
     "video_alt_text": "為使用輔助技術的使用者描述影片",
     "video_autoplay": "影片預設為靜音播放",

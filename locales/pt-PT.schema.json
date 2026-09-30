@@ -9,6 +9,7 @@
  */
 {
   "names": {
+    "delivery_countdown": "Delivery countdown",
     "404": "404",
     "colors": "Paleta de cores",
     "custom_section": "Secção personalizada",
@@ -171,6 +172,10 @@
     "disclosures": "Divulgações"
   },
   "settings": {
+    "accent_color": "Accent color",
+    "text_after_cutoff": "Message after cutoff",
+    "text_before_cutoff": "Message before cutoff",
+    "same_day_cutoff_hour": "Same-day cutoff hour",
     "alignment": "Alinhamento",
     "autoplay": "Reprodução automática",
     "background": "Fundo",
@@ -868,6 +873,7 @@
     "direction_top_start": "Superior esquerdo"
   },
   "content": {
+    "delivery_countdown_info": "Shows how long is left to order for same-day delivery, counted in UAE time (GST).",
     "advanced": "Avançado",
     "background_image": "Imagem de fundo",
     "background_video": "Vídeo de fundo",
@@ -1091,6 +1097,8 @@
     "disclosures": "Divulgações"
   },
   "info": {
+    "countdown_placeholder": "Use [countdown] where the remaining time should appear.",
+    "same_day_cutoff_hour": "Hour of the day (24h, UAE time) after which same-day orders close.",
     "video_alt_text": "Descreva o vídeo para utilizadores de tecnologia de apoio",
     "video_autoplay": "Os vídeos serão silenciados por predefinição",
     "video_external": "Utilize um URL do YouTube ou do Vimeo",
