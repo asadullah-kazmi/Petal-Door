@@ -14,58 +14,135 @@
     "footer_m9NzUG": {
       "type": "footer",
       "blocks": {
-        "group_H6VpwJ": {
+        "brand": {
           "type": "group",
           "settings": {
             "content_direction": "column",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
-            "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 6,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "toggle_overlay": false,
-            "overlay_color": "#00000026",
-            "overlay_style": "solid",
-            "gradient_direction": "to top",
-            "open_in_new_tab": false,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "gap": 12,
+            "width": "fill"
           },
           "blocks": {
-            "text_LWt8Pz": {
+            "brand_logo": {
+              "type": "logo",
+              "settings": {
+                "unit": "pixel",
+                "pixel_height": 40,
+                "custom_mobile_size": true,
+                "unit_mobile": "pixel",
+                "pixel_height_mobile": 32
+              },
+              "blocks": {}
+            },
+            "brand_text": {
               "type": "text",
               "settings": {
-                "text": "<h2>Join our email list</h2>",
+                "text": "<p>Luxury flowers, hand-tied in Dubai and delivered with love across all seven Emirates.</p>",
+                "type_preset": "rte",
                 "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
+                "max_width": "narrow"
+              },
+              "blocks": {}
+            },
+            "delivery_heading": {
+              "type": "text",
+              "settings": {
+                "text": "<h6>We deliver to</h6>",
+                "type_preset": "h6",
+                "width": "100%",
+                "padding-block-start": 8
+              },
+              "blocks": {}
+            },
+            "delivery_list": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Dubai · Abu Dhabi · Sharjah · Ajman · Ras Al Khaimah · Fujairah · Umm Al Quwain</p>",
+                "type_preset": "paragraph",
+                "width": "100%",
+                "font_size": "0.875rem"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "brand_logo",
+            "brand_text",
+            "delivery_heading",
+            "delivery_list"
+          ]
+        },
+        "shop_menu": {
+          "type": "menu",
+          "settings": {
+            "menu": "main-menu",
+            "heading": "Shop",
+            "heading_preset": "h6",
+            "link_preset": "paragraph",
+            "menu_spacing": 10,
+            "show_as_accordion": true,
+            "accordion_icon": "plus"
+          },
+          "blocks": {}
+        },
+        "help_menu": {
+          "type": "menu",
+          "settings": {
+            "menu": "footer",
+            "heading": "Help",
+            "heading_preset": "h6",
+            "link_preset": "paragraph",
+            "menu_spacing": 10,
+            "show_as_accordion": true,
+            "accordion_icon": "plus"
+          },
+          "blocks": {}
+        },
+        "newsletter": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "gap": 12,
+            "width": "fill"
+          },
+          "blocks": {
+            "newsletter_heading": {
+              "type": "text",
+              "settings": {
+                "text": "<h3>Join the PetalDoor list</h3>",
                 "type_preset": "h4",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
+                "width": "100%",
+                "font": "var(--font-heading--family)"
+              },
+              "blocks": {}
+            },
+            "newsletter_text": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Seasonal collections, occasion reminders and members-only offers.</p>",
+                "type_preset": "rte",
+                "width": "100%"
+              },
+              "blocks": {}
+            },
+            "email_signup_crihX7": {
+              "type": "email-signup",
+              "settings": {
+                "width": "fill",
+                "custom_width": 100,
+                "heading_preset": "h3",
+                "border_style": "all",
+                "input_style": "custom",
+                "border_width": 1,
+                "border_radius": 100,
+                "input_background_color": "{{ settings.color_palette.color6 }}",
+                "input_text_color": "{{ settings.color_palette.background }}",
+                "input_border_color": "{{ settings.color_palette.color1 }}",
+                "input_type_preset": "paragraph",
+                "style_class": "button-unstyled",
+                "display_type": "arrow",
+                "label": "Sign up",
+                "integrated_button": true,
+                "button_type_preset": "paragraph",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -73,74 +150,33 @@
               },
               "blocks": {}
             },
-            "text_f9CFLH": {
-              "type": "text",
-              "settings": {
-                "text": "<p>Get exclusive deals and early access to new products.</p>",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
+            "payment_icons": {
+              "type": "payment-icons",
+              "settings": {},
               "blocks": {}
             }
           },
           "block_order": [
-            "text_LWt8Pz",
-            "text_f9CFLH"
+            "newsletter_heading",
+            "newsletter_text",
+            "email_signup_crihX7",
+            "payment_icons"
           ]
-        },
-        "email_signup_crihX7": {
-          "type": "email-signup",
-          "settings": {
-            "width": "fill",
-            "custom_width": 100,
-            "heading_preset": "h3",
-            "border_style": "all",
-            "input_style": "custom",
-            "border_width": 1,
-            "border_radius": 100,
-            "input_background_color": "{{ settings.color_palette.background }}",
-            "input_text_color": "{{ settings.color_palette.color1 }}",
-            "input_border_color": "{{ settings.color_palette.color2 }}",
-            "input_type_preset": "paragraph",
-            "style_class": "button-unstyled",
-            "display_type": "arrow",
-            "label": "Sign up",
-            "integrated_button": true,
-            "button_type_preset": "paragraph",
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
         }
       },
       "block_order": [
-        "group_H6VpwJ",
-        "email_signup_crihX7"
+        "brand",
+        "shop_menu",
+        "help_menu",
+        "newsletter"
       ],
       "name": "t:names.footer",
       "settings": {
         "section_width": "page-width",
-        "gap": 20,
-        "background_color": "{{ settings.color_palette.background }}",
-        "padding-block-start": 30,
-        "padding-block-end": 30
+        "gap": 40,
+        "background_color": "{{ settings.color_palette.color6 }}",
+        "padding-block-start": 64,
+        "padding-block-end": 40
       }
     },
     "footer_utilities_jLGE8U": {
@@ -185,10 +221,10 @@
         "section_width": "page-width",
         "gap": 24,
         "divider_thickness": 1,
-        "divider_color": "{{ settings.color_palette.color2 }}",
-        "background_color": "{{ settings.color_palette.background }}",
-        "padding-block-start": 20,
-        "padding-block-end": 48
+        "divider_color": "{{ settings.color_palette.color1 }}",
+        "background_color": "{{ settings.color_palette.color6 }}",
+        "padding-block-start": 24,
+        "padding-block-end": 32
       }
     }
   },

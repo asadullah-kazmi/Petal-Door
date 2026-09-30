@@ -8,90 +8,460 @@
  * ------------------------------------------------------------
  */{
   "sections": {
-    "hero_jVaWmY": {
-      "type": "hero",
+    "hero_split": {
+      "type": "media-with-content",
+      "name": "Hero",
+      "settings": {
+        "media_position": "right",
+        "media_width": "wide",
+        "media_height": "60svh",
+        "section_width": "full-width",
+        "extend_media": true,
+        "background_color": "{{ settings.color_palette.color4 }}",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      },
       "blocks": {
-        "text_YLPk4p": {
-          "type": "text",
-          "name": "t:names.heading",
+        "media": {
+          "type": "_media-without-appearance",
+          "static": true,
           "settings": {
-            "text": "<p>Browse our latest products</p>",
-            "text_color": "{{ settings.color_palette.background }}",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h2",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "media_type": "image",
+            "link": "shopify://collections/all"
+          }
         },
-        "button_H9gpTf": {
-          "type": "button",
-          "name": "t:names.button",
+        "content": {
+          "type": "_content-without-appearance",
+          "static": true,
           "settings": {
-            "label": "Shop all",
-            "link": "shopify://collections/all",
-            "open_in_new_tab": false,
-            "style_class": "button-custom",
-            "custom_button_background": "rgba(0,0,0,0)",
-            "custom_button_text": "{{ settings.color_palette.background }}",
-            "custom_button_border": "{{ settings.color_palette.background }}",
-            "width": "fit-content",
-            "custom_width": 100,
-            "width_mobile": "fit-content",
-            "custom_width_mobile": 100
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 20
           },
-          "blocks": {}
+          "blocks": {
+            "text_pd03": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Same-day delivery · All 7 Emirates</p>",
+                "type_preset": "custom",
+                "font": "var(--font-subheading--family)",
+                "font_size": "0.75rem",
+                "case": "uppercase",
+                "letter_spacing": "loose",
+                "text_color": "{{ settings.color_palette.color3 }}"
+              }
+            },
+            "text_pd04": {
+              "type": "text",
+              "settings": {
+                "text": "<h1>Flowers that say it <em>beautifully</em></h1>",
+                "type_preset": "h1",
+                "font": "var(--font-heading--family)",
+                "max_width": "narrow",
+                "wrap": "balance"
+              }
+            },
+            "text_pd05": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Hand-tied bouquets and luxury arrangements, crafted fresh every morning in Dubai and delivered to their door — with a photo sent to you before we ring the bell.</p>",
+                "type_preset": "paragraph",
+                "max_width": "narrow",
+                "text_color": "{{ settings.color_palette.color1 }}"
+              }
+            },
+            "group_pd06": {
+              "type": "group",
+              "settings": {
+                "content_direction": "row",
+                "vertical_on_mobile": false,
+                "gap": 12,
+                "width": "fit-content",
+                "padding-block-start": 8
+              },
+              "blocks": {
+                "button_pd01": {
+                  "type": "button",
+                  "settings": {
+                    "label": "Shop bestsellers",
+                    "link": "shopify://collections/all",
+                    "style_class": "button"
+                  }
+                },
+                "button_pd02": {
+                  "type": "button",
+                  "settings": {
+                    "label": "Same-day delivery",
+                    "link": "shopify://collections/all",
+                    "style_class": "button-secondary"
+                  }
+                }
+              },
+              "block_order": [
+                "button_pd01",
+                "button_pd02"
+              ]
+            }
+          },
+          "block_order": [
+            "text_pd03",
+            "text_pd04",
+            "text_pd05",
+            "group_pd06"
+          ]
+        }
+      },
+      "block_order": []
+    },
+    "delivery_promise": {
+      "type": "section",
+      "name": "Delivery promise",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "space-between",
+        "vertical_alignment": "flex-start",
+        "gap": 24,
+        "section_width": "page-width",
+        "background_color": "{{ settings.color_palette.background }}",
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      },
+      "blocks": {
+        "group_pd23": {
+          "type": "group",
+          "settings": {
+            "gap": 12,
+            "horizontal_alignment_flex_direction_column": "center",
+            "height": "fit"
+          },
+          "blocks": {
+            "icon_pd09": {
+              "type": "icon",
+              "settings": {
+                "icon": "truck",
+                "width": 32
+              }
+            },
+            "group_pd10": {
+              "type": "group",
+              "settings": {
+                "gap": 4,
+                "horizontal_alignment_flex_direction_column": "center"
+              },
+              "blocks": {
+                "text_pd07": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<h3>Free same-day delivery</h3>",
+                    "type_preset": "h5",
+                    "font": "var(--font-subheading--family)",
+                    "alignment": "center",
+                    "width": "100%"
+                  }
+                },
+                "text_pd08": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Across Dubai, Abu Dhabi, Sharjah and all 7 Emirates.</p>",
+                    "type_preset": "paragraph",
+                    "alignment": "center",
+                    "width": "100%",
+                    "text_color": "{{ settings.color_palette.color1 }}",
+                    "font_size": "0.875rem"
+                  }
+                }
+              },
+              "block_order": [
+                "text_pd07",
+                "text_pd08"
+              ]
+            }
+          },
+          "block_order": [
+            "icon_pd09",
+            "group_pd10"
+          ]
+        },
+        "group_pd24": {
+          "type": "group",
+          "settings": {
+            "gap": 12,
+            "horizontal_alignment_flex_direction_column": "center",
+            "height": "fit"
+          },
+          "blocks": {
+            "icon_pd13": {
+              "type": "icon",
+              "settings": {
+                "icon": "stopwatch",
+                "width": 32
+              }
+            },
+            "group_pd14": {
+              "type": "group",
+              "settings": {
+                "gap": 4,
+                "horizontal_alignment_flex_direction_column": "center"
+              },
+              "blocks": {
+                "text_pd11": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<h3>Choose your time slot</h3>",
+                    "type_preset": "h5",
+                    "font": "var(--font-subheading--family)",
+                    "alignment": "center",
+                    "width": "100%"
+                  }
+                },
+                "text_pd12": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Pick a delivery window that suits the moment.</p>",
+                    "type_preset": "paragraph",
+                    "alignment": "center",
+                    "width": "100%",
+                    "text_color": "{{ settings.color_palette.color1 }}",
+                    "font_size": "0.875rem"
+                  }
+                }
+              },
+              "block_order": [
+                "text_pd11",
+                "text_pd12"
+              ]
+            }
+          },
+          "block_order": [
+            "icon_pd13",
+            "group_pd14"
+          ]
+        },
+        "group_pd25": {
+          "type": "group",
+          "settings": {
+            "gap": 12,
+            "horizontal_alignment_flex_direction_column": "center",
+            "height": "fit"
+          },
+          "blocks": {
+            "icon_pd17": {
+              "type": "icon",
+              "settings": {
+                "icon": "eye",
+                "width": 32
+              }
+            },
+            "group_pd18": {
+              "type": "group",
+              "settings": {
+                "gap": 4,
+                "horizontal_alignment_flex_direction_column": "center"
+              },
+              "blocks": {
+                "text_pd15": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<h3>Photo before delivery</h3>",
+                    "type_preset": "h5",
+                    "font": "var(--font-subheading--family)",
+                    "alignment": "center",
+                    "width": "100%"
+                  }
+                },
+                "text_pd16": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>See your arrangement on WhatsApp before it leaves.</p>",
+                    "type_preset": "paragraph",
+                    "alignment": "center",
+                    "width": "100%",
+                    "text_color": "{{ settings.color_palette.color1 }}",
+                    "font_size": "0.875rem"
+                  }
+                }
+              },
+              "block_order": [
+                "text_pd15",
+                "text_pd16"
+              ]
+            }
+          },
+          "block_order": [
+            "icon_pd17",
+            "group_pd18"
+          ]
+        },
+        "group_pd26": {
+          "type": "group",
+          "settings": {
+            "gap": 12,
+            "horizontal_alignment_flex_direction_column": "center",
+            "height": "fit"
+          },
+          "blocks": {
+            "icon_pd21": {
+              "type": "icon",
+              "settings": {
+                "icon": "leaf",
+                "width": 32
+              }
+            },
+            "group_pd22": {
+              "type": "group",
+              "settings": {
+                "gap": 4,
+                "horizontal_alignment_flex_direction_column": "center"
+              },
+              "blocks": {
+                "text_pd19": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<h3>Farm-fresh blooms</h3>",
+                    "type_preset": "h5",
+                    "font": "var(--font-subheading--family)",
+                    "alignment": "center",
+                    "width": "100%"
+                  }
+                },
+                "text_pd20": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Flown in from Holland, Kenya and Ecuador.</p>",
+                    "type_preset": "paragraph",
+                    "alignment": "center",
+                    "width": "100%",
+                    "text_color": "{{ settings.color_palette.color1 }}",
+                    "font_size": "0.875rem"
+                  }
+                }
+              },
+              "block_order": [
+                "text_pd19",
+                "text_pd20"
+              ]
+            }
+          },
+          "block_order": [
+            "icon_pd21",
+            "group_pd22"
+          ]
         }
       },
       "block_order": [
-        "text_YLPk4p",
-        "button_H9gpTf"
+        "group_pd23",
+        "group_pd24",
+        "group_pd25",
+        "group_pd26"
+      ]
+    },
+    "shop_by_occasion": {
+      "type": "collection-list",
+      "name": "Shop by occasion",
+      "blocks": {
+        "header": {
+          "type": "group",
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": false,
+            "horizontal_alignment": "space-between",
+            "vertical_alignment": "flex-end",
+            "align_baseline": true,
+            "gap": 12
+          },
+          "blocks": {
+            "group_pd29": {
+              "type": "group",
+              "settings": {
+                "gap": 6,
+                "width": "fit-content"
+              },
+              "blocks": {
+                "text_pd27": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Find the perfect gesture</p>",
+                    "type_preset": "custom",
+                    "font": "var(--font-subheading--family)",
+                    "font_size": "0.75rem",
+                    "case": "uppercase",
+                    "letter_spacing": "loose",
+                    "text_color": "{{ settings.color_palette.color3 }}"
+                  }
+                },
+                "text_pd28": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<h2>Shop by occasion</h2>",
+                    "type_preset": "h3",
+                    "font": "var(--font-heading--family)"
+                  }
+                }
+              },
+              "block_order": [
+                "text_pd27",
+                "text_pd28"
+              ]
+            }
+          },
+          "block_order": [
+            "group_pd29"
+          ]
+        },
+        "static-collection-card": {
+          "type": "_collection-card",
+          "static": true,
+          "settings": {
+            "placement": "below_image",
+            "horizontal_alignment": "center",
+            "collection_card_gap": 12
+          },
+          "blocks": {
+            "collection-card-image": {
+              "type": "_collection-card-image",
+              "static": true,
+              "settings": {
+                "image_ratio": "square",
+                "border_radius": 100
+              }
+            },
+            "collection-title": {
+              "type": "collection-title",
+              "settings": {
+                "type_preset": "h5",
+                "font": "var(--font-subheading--family)",
+                "alignment": "center",
+                "width": "100%"
+              }
+            }
+          },
+          "block_order": [
+            "collection-title"
+          ]
+        }
+      },
+      "block_order": [
+        "header"
       ],
-      "name": "t:names.hero",
       "settings": {
-        "media_type_1": "image",
-        "media_type_2": "image",
-        "stack_media_on_mobile": false,
-        "custom_mobile_media": false,
-        "media_type_1_mobile": "image",
-        "media_type_2_mobile": "image",
-        "open_in_new_tab": false,
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "space-between",
-        "vertical_alignment": "flex-end",
-        "align_baseline": true,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "flex-end",
-        "gap": 24,
+        "collection_list": [],
+        "layout_type": "carousel",
+        "carousel_on_mobile": true,
+        "columns": 6,
+        "mobile_columns": "2",
+        "mobile_card_size": "44cqw",
+        "columns_gap": 24,
+        "rows_gap": 24,
+        "icons_style": "arrow",
+        "icons_shape": "circle",
         "section_width": "page-width",
-        "section_height": "medium",
-        "section_height_custom": 50,
-        "background_color": "rgba(0,0,0,0)",
-        "toggle_overlay": true,
-        "overlay_color": "#12121266",
-        "overlay_style": "solid",
-        "gradient_direction": "to bottom",
-        "blurred_reflection": false,
-        "reflection_opacity": 75,
-        "padding-block-start": 100,
-        "padding-block-end": 72
+        "gap": 32,
+        "padding-block-start": 56,
+        "padding-block-end": 56
       }
     },
-    "product_list_fa6P9H": {
+    "bestsellers": {
       "type": "product-list",
       "blocks": {
         "static-header": {
@@ -126,48 +496,51 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "product_list_text_YFtzcL": {
-              "type": "_product-list-text",
-              "name": "t:names.collection_title",
+            "group_pd32": {
+              "type": "group",
               "settings": {
-                "text": "<h3>{{ closest.collection.title }}</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h4",
-                "font": "var(--font-body--family)",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "gap": 6,
+                "width": "fit-content"
               },
-              "blocks": {}
+              "blocks": {
+                "text_pd30": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Loved across the UAE</p>",
+                    "type_preset": "custom",
+                    "font": "var(--font-subheading--family)",
+                    "font_size": "0.75rem",
+                    "case": "uppercase",
+                    "letter_spacing": "loose",
+                    "text_color": "{{ settings.color_palette.color3 }}"
+                  }
+                },
+                "text_pd31": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<h2>Our bestsellers</h2>",
+                    "type_preset": "h3",
+                    "font": "var(--font-heading--family)"
+                  }
+                }
+              },
+              "block_order": [
+                "text_pd30",
+                "text_pd31"
+              ]
             },
-            "product_list_button_MWeP9V": {
-              "type": "_product-list-button",
-              "name": "t:names.product_list_button",
+            "button_pd33": {
+              "type": "button",
               "settings": {
                 "label": "View all",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
+                "link": "shopify://collections/all",
+                "style_class": "button-unstyled"
+              }
             }
           },
           "block_order": [
-            "product_list_text_YFtzcL",
-            "product_list_button_MWeP9V"
+            "group_pd32",
+            "button_pd33"
           ]
         },
         "static-product-card": {
@@ -175,7 +548,7 @@
           "name": "t:names.product_card",
           "static": true,
           "settings": {
-            "product_card_gap": 4,
+            "product_card_gap": 6,
             "border": "none",
             "border_width": 1,
             "border_opacity": 100,
@@ -190,11 +563,11 @@
               "type": "_product-card-gallery",
               "name": "t:names.product_card_media",
               "settings": {
-                "image_ratio": "adapt",
+                "image_ratio": "portrait",
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
-                "border_radius": 0,
+                "border_radius": 16,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -209,9 +582,9 @@
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.125rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
@@ -219,7 +592,7 @@
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
-                "padding-block-start": 4,
+                "padding-block-start": 8,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
@@ -233,10 +606,10 @@
                 "show_sale_price_first": true,
                 "show_installments": false,
                 "show_tax_info": false,
-                "type_preset": "h6",
+                "type_preset": "paragraph",
                 "width": "100%",
                 "alignment": "left",
-                "font": "var(--font-body--family)",
+                "font": "var(--font-subheading--family)",
                 "font_size": "1rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
@@ -256,7 +629,7 @@
           ]
         }
       },
-      "name": "t:names.product_list",
+      "name": "Our bestsellers",
       "settings": {
         "collection": "all",
         "layout_type": "grid",
@@ -265,21 +638,1012 @@
         "columns": 4,
         "mobile_columns": "2",
         "mobile_card_size": "60cqw",
-        "columns_gap": 8,
-        "rows_gap": 24,
+        "columns_gap": 20,
+        "rows_gap": 36,
         "icons_style": "arrow",
         "icons_shape": "none",
         "section_width": "page-width",
         "horizontal_alignment": "flex-start",
-        "gap": 28,
+        "gap": 32,
         "background_color": "{{ settings.color_palette.background }}",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-start": 56,
+        "padding-block-end": 56
       }
+    },
+    "emirates_marquee": {
+      "type": "marquee",
+      "name": "Delivery areas marquee",
+      "settings": {
+        "movement_direction": "normal",
+        "background_color": "{{ settings.color_palette.color3 }}",
+        "padding-block-start": 20,
+        "padding-block-end": 20,
+        "gap_between_elements": 32
+      },
+      "blocks": {
+        "text_pd34": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Dubai</p>",
+            "type_preset": "custom",
+            "font": "var(--font-accent--family)",
+            "font_size": "2rem",
+            "line_height": "tight",
+            "wrap": "nowrap",
+            "text_color": "#FFFFFF"
+          }
+        },
+        "text_pd35": {
+          "type": "text",
+          "settings": {
+            "text": "<p>✿</p>",
+            "type_preset": "custom",
+            "font": "var(--font-heading--family)",
+            "font_size": "1.5rem",
+            "text_color": "{{ settings.color_palette.color4 }}",
+            "wrap": "nowrap"
+          }
+        },
+        "text_pd36": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Abu Dhabi</p>",
+            "type_preset": "custom",
+            "font": "var(--font-accent--family)",
+            "font_size": "2rem",
+            "line_height": "tight",
+            "wrap": "nowrap",
+            "text_color": "#FFFFFF"
+          }
+        },
+        "text_pd37": {
+          "type": "text",
+          "settings": {
+            "text": "<p>✿</p>",
+            "type_preset": "custom",
+            "font": "var(--font-heading--family)",
+            "font_size": "1.5rem",
+            "text_color": "{{ settings.color_palette.color4 }}",
+            "wrap": "nowrap"
+          }
+        },
+        "text_pd38": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Sharjah</p>",
+            "type_preset": "custom",
+            "font": "var(--font-accent--family)",
+            "font_size": "2rem",
+            "line_height": "tight",
+            "wrap": "nowrap",
+            "text_color": "#FFFFFF"
+          }
+        },
+        "text_pd39": {
+          "type": "text",
+          "settings": {
+            "text": "<p>✿</p>",
+            "type_preset": "custom",
+            "font": "var(--font-heading--family)",
+            "font_size": "1.5rem",
+            "text_color": "{{ settings.color_palette.color4 }}",
+            "wrap": "nowrap"
+          }
+        },
+        "text_pd40": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Ajman</p>",
+            "type_preset": "custom",
+            "font": "var(--font-accent--family)",
+            "font_size": "2rem",
+            "line_height": "tight",
+            "wrap": "nowrap",
+            "text_color": "#FFFFFF"
+          }
+        },
+        "text_pd41": {
+          "type": "text",
+          "settings": {
+            "text": "<p>✿</p>",
+            "type_preset": "custom",
+            "font": "var(--font-heading--family)",
+            "font_size": "1.5rem",
+            "text_color": "{{ settings.color_palette.color4 }}",
+            "wrap": "nowrap"
+          }
+        },
+        "text_pd42": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Ras Al Khaimah</p>",
+            "type_preset": "custom",
+            "font": "var(--font-accent--family)",
+            "font_size": "2rem",
+            "line_height": "tight",
+            "wrap": "nowrap",
+            "text_color": "#FFFFFF"
+          }
+        },
+        "text_pd43": {
+          "type": "text",
+          "settings": {
+            "text": "<p>✿</p>",
+            "type_preset": "custom",
+            "font": "var(--font-heading--family)",
+            "font_size": "1.5rem",
+            "text_color": "{{ settings.color_palette.color4 }}",
+            "wrap": "nowrap"
+          }
+        },
+        "text_pd44": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Fujairah</p>",
+            "type_preset": "custom",
+            "font": "var(--font-accent--family)",
+            "font_size": "2rem",
+            "line_height": "tight",
+            "wrap": "nowrap",
+            "text_color": "#FFFFFF"
+          }
+        },
+        "text_pd45": {
+          "type": "text",
+          "settings": {
+            "text": "<p>✿</p>",
+            "type_preset": "custom",
+            "font": "var(--font-heading--family)",
+            "font_size": "1.5rem",
+            "text_color": "{{ settings.color_palette.color4 }}",
+            "wrap": "nowrap"
+          }
+        },
+        "text_pd46": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Umm Al Quwain</p>",
+            "type_preset": "custom",
+            "font": "var(--font-accent--family)",
+            "font_size": "2rem",
+            "line_height": "tight",
+            "wrap": "nowrap",
+            "text_color": "#FFFFFF"
+          }
+        },
+        "text_pd47": {
+          "type": "text",
+          "settings": {
+            "text": "<p>✿</p>",
+            "type_preset": "custom",
+            "font": "var(--font-heading--family)",
+            "font_size": "1.5rem",
+            "text_color": "{{ settings.color_palette.color4 }}",
+            "wrap": "nowrap"
+          }
+        }
+      },
+      "block_order": [
+        "text_pd34",
+        "text_pd35",
+        "text_pd36",
+        "text_pd37",
+        "text_pd38",
+        "text_pd39",
+        "text_pd40",
+        "text_pd41",
+        "text_pd42",
+        "text_pd43",
+        "text_pd44",
+        "text_pd45",
+        "text_pd46",
+        "text_pd47"
+      ]
+    },
+    "brand_story": {
+      "type": "media-with-content",
+      "name": "Brand story",
+      "settings": {
+        "media_position": "left",
+        "media_width": "medium",
+        "media_height": "60svh",
+        "section_width": "page-width",
+        "background_color": "{{ settings.color_palette.background }}",
+        "padding-block-start": 56,
+        "padding-block-end": 56
+      },
+      "blocks": {
+        "media": {
+          "type": "_media-without-appearance",
+          "static": true,
+          "settings": {
+            "media_type": "image"
+          }
+        },
+        "content": {
+          "type": "_content-without-appearance",
+          "static": true,
+          "settings": {
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 20
+          },
+          "blocks": {
+            "text_pd48": {
+              "type": "text",
+              "settings": {
+                "text": "<p>The PetalDoor promise</p>",
+                "type_preset": "custom",
+                "font": "var(--font-subheading--family)",
+                "font_size": "0.75rem",
+                "case": "uppercase",
+                "letter_spacing": "loose",
+                "text_color": "{{ settings.color_palette.color3 }}"
+              }
+            },
+            "text_pd49": {
+              "type": "text",
+              "settings": {
+                "text": "<h2>Hand-tied in Dubai, <em>every single morning</em></h2>",
+                "type_preset": "h2",
+                "font": "var(--font-heading--family)",
+                "max_width": "narrow",
+                "wrap": "balance"
+              }
+            },
+            "text_pd50": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Our florists choose each stem by hand and arrange it the day it is delivered — never the night before. Every order is photographed and sent to you for approval, so you know exactly what they will receive.</p>",
+                "type_preset": "paragraph",
+                "max_width": "narrow",
+                "text_color": "{{ settings.color_palette.color1 }}"
+              }
+            },
+            "button_pd51": {
+              "type": "button",
+              "settings": {
+                "label": "Our story",
+                "link": "shopify://pages/about",
+                "style_class": "button-secondary"
+              }
+            }
+          },
+          "block_order": [
+            "text_pd48",
+            "text_pd49",
+            "text_pd50",
+            "button_pd51"
+          ]
+        }
+      },
+      "block_order": []
+    },
+    "shop_by_flower": {
+      "type": "collection-list",
+      "name": "Shop by flower",
+      "blocks": {
+        "header": {
+          "type": "group",
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": false,
+            "horizontal_alignment": "space-between",
+            "vertical_alignment": "flex-end",
+            "align_baseline": true,
+            "gap": 12
+          },
+          "blocks": {
+            "group_pd54": {
+              "type": "group",
+              "settings": {
+                "gap": 6,
+                "width": "fit-content"
+              },
+              "blocks": {
+                "text_pd52": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Favourite blooms</p>",
+                    "type_preset": "custom",
+                    "font": "var(--font-subheading--family)",
+                    "font_size": "0.75rem",
+                    "case": "uppercase",
+                    "letter_spacing": "loose",
+                    "text_color": "{{ settings.color_palette.color3 }}"
+                  }
+                },
+                "text_pd53": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<h2>Shop by flower</h2>",
+                    "type_preset": "h3",
+                    "font": "var(--font-heading--family)"
+                  }
+                }
+              },
+              "block_order": [
+                "text_pd52",
+                "text_pd53"
+              ]
+            }
+          },
+          "block_order": [
+            "group_pd54"
+          ]
+        },
+        "static-collection-card": {
+          "type": "_collection-card",
+          "static": true,
+          "settings": {
+            "placement": "below_image",
+            "horizontal_alignment": "center",
+            "collection_card_gap": 12
+          },
+          "blocks": {
+            "collection-card-image": {
+              "type": "_collection-card-image",
+              "static": true,
+              "settings": {
+                "image_ratio": "portrait",
+                "border_radius": 16
+              }
+            },
+            "collection-title": {
+              "type": "collection-title",
+              "settings": {
+                "type_preset": "h5",
+                "font": "var(--font-subheading--family)",
+                "alignment": "center",
+                "width": "100%"
+              }
+            }
+          },
+          "block_order": [
+            "collection-title"
+          ]
+        }
+      },
+      "block_order": [
+        "header"
+      ],
+      "settings": {
+        "collection_list": [],
+        "layout_type": "grid",
+        "carousel_on_mobile": true,
+        "columns": 5,
+        "mobile_columns": "2",
+        "mobile_card_size": "44cqw",
+        "columns_gap": 20,
+        "rows_gap": 24,
+        "section_width": "page-width",
+        "gap": 32,
+        "background_color": "{{ settings.color_palette.color5 }}",
+        "padding-block-start": 56,
+        "padding-block-end": 56
+      }
+    },
+    "add_ons": {
+      "type": "product-list",
+      "blocks": {
+        "static-header": {
+          "type": "_product-list-content",
+          "name": "t:names.header",
+          "static": true,
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": false,
+            "horizontal_alignment": "space-between",
+            "vertical_alignment": "flex-end",
+            "align_baseline": true,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "group_pd57": {
+              "type": "group",
+              "settings": {
+                "gap": 6,
+                "width": "fit-content"
+              },
+              "blocks": {
+                "text_pd55": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Make it extra special</p>",
+                    "type_preset": "custom",
+                    "font": "var(--font-subheading--family)",
+                    "font_size": "0.75rem",
+                    "case": "uppercase",
+                    "letter_spacing": "loose",
+                    "text_color": "{{ settings.color_palette.color3 }}"
+                  }
+                },
+                "text_pd56": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<h2>Cakes, chocolates & balloons</h2>",
+                    "type_preset": "h3",
+                    "font": "var(--font-heading--family)"
+                  }
+                }
+              },
+              "block_order": [
+                "text_pd55",
+                "text_pd56"
+              ]
+            },
+            "button_pd58": {
+              "type": "button",
+              "settings": {
+                "label": "View all",
+                "link": "shopify://collections/all",
+                "style_class": "button-unstyled"
+              }
+            }
+          },
+          "block_order": [
+            "group_pd57",
+            "button_pd58"
+          ]
+        },
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 6,
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_card_gallery_677WP3": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "portrait",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 16,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_title_YXxMTj": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.125rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 8,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_JQzVV4": {
+              "type": "price",
+              "name": "t:names.product_price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "paragraph",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-subheading--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_card_gallery_677WP3",
+            "product_title_YXxMTj",
+            "price_JQzVV4"
+          ]
+        }
+      },
+      "name": "Cakes, chocolates & balloons",
+      "settings": {
+        "collection": "all",
+        "layout_type": "carousel",
+        "carousel_on_mobile": false,
+        "max_products": 8,
+        "columns": 4,
+        "mobile_columns": "2",
+        "mobile_card_size": "60cqw",
+        "columns_gap": 20,
+        "rows_gap": 36,
+        "icons_style": "arrow",
+        "icons_shape": "circle",
+        "section_width": "page-width",
+        "horizontal_alignment": "flex-start",
+        "gap": 32,
+        "background_color": "{{ settings.color_palette.background }}",
+        "padding-block-start": 56,
+        "padding-block-end": 56
+      }
+    },
+    "how_it_works": {
+      "type": "section",
+      "name": "How it works",
+      "settings": {
+        "content_direction": "column",
+        "horizontal_alignment_flex_direction_column": "center",
+        "gap": 32,
+        "section_width": "page-width",
+        "background_color": "{{ settings.color_palette.color4 }}",
+        "padding-block-start": 64,
+        "padding-block-end": 64
+      },
+      "blocks": {
+        "group_pd73": {
+          "type": "group",
+          "settings": {
+            "gap": 6,
+            "horizontal_alignment_flex_direction_column": "center"
+          },
+          "blocks": {
+            "text_pd59": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Simple as 1, 2, 3</p>",
+                "type_preset": "custom",
+                "font": "var(--font-subheading--family)",
+                "font_size": "0.75rem",
+                "case": "uppercase",
+                "letter_spacing": "loose",
+                "text_color": "{{ settings.color_palette.color3 }}",
+                "alignment": "center"
+              }
+            },
+            "text_pd60": {
+              "type": "text",
+              "settings": {
+                "text": "<h2>Sending flowers, made effortless</h2>",
+                "type_preset": "h3",
+                "font": "var(--font-heading--family)",
+                "alignment": "center"
+              }
+            }
+          },
+          "block_order": [
+            "text_pd59",
+            "text_pd60"
+          ]
+        },
+        "group_pd74": {
+          "type": "group",
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": true,
+            "gap": 20,
+            "vertical_alignment": "flex-start",
+            "height": "fit"
+          },
+          "blocks": {
+            "group_pd70": {
+              "type": "group",
+              "settings": {
+                "gap": 8,
+                "horizontal_alignment_flex_direction_column": "center",
+                "vertical_alignment_flex_direction_column": "flex-start",
+                "height": "fill",
+                "background_color": "#FFFFFF",
+                "border_radius": 24,
+                "padding-block-start": 32,
+                "padding-block-end": 32,
+                "padding-inline-start": 24,
+                "padding-inline-end": 24
+              },
+              "blocks": {
+                "text_pd61": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>01</p>",
+                    "type_preset": "custom",
+                    "font": "var(--font-accent--family)",
+                    "font_size": "3rem",
+                    "line_height": "tight",
+                    "text_color": "{{ settings.color_palette.color3 }}",
+                    "alignment": "center",
+                    "width": "100%"
+                  }
+                },
+                "text_pd62": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<h3>Choose your bouquet</h3>",
+                    "type_preset": "h4",
+                    "font": "var(--font-heading--family)",
+                    "alignment": "center",
+                    "width": "100%"
+                  }
+                },
+                "text_pd63": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Browse by occasion, flower or budget.</p>",
+                    "type_preset": "paragraph",
+                    "alignment": "center",
+                    "width": "100%",
+                    "text_color": "{{ settings.color_palette.color1 }}"
+                  }
+                }
+              },
+              "block_order": [
+                "text_pd61",
+                "text_pd62",
+                "text_pd63"
+              ]
+            },
+            "group_pd71": {
+              "type": "group",
+              "settings": {
+                "gap": 8,
+                "horizontal_alignment_flex_direction_column": "center",
+                "vertical_alignment_flex_direction_column": "flex-start",
+                "height": "fill",
+                "background_color": "#FFFFFF",
+                "border_radius": 24,
+                "padding-block-start": 32,
+                "padding-block-end": 32,
+                "padding-inline-start": 24,
+                "padding-inline-end": 24
+              },
+              "blocks": {
+                "text_pd64": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>02</p>",
+                    "type_preset": "custom",
+                    "font": "var(--font-accent--family)",
+                    "font_size": "3rem",
+                    "line_height": "tight",
+                    "text_color": "{{ settings.color_palette.color3 }}",
+                    "alignment": "center",
+                    "width": "100%"
+                  }
+                },
+                "text_pd65": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<h3>Pick a date & add a note</h3>",
+                    "type_preset": "h4",
+                    "font": "var(--font-heading--family)",
+                    "alignment": "center",
+                    "width": "100%"
+                  }
+                },
+                "text_pd66": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Same-day, next-day or a date of your choice — with a handwritten card.</p>",
+                    "type_preset": "paragraph",
+                    "alignment": "center",
+                    "width": "100%",
+                    "text_color": "{{ settings.color_palette.color1 }}"
+                  }
+                }
+              },
+              "block_order": [
+                "text_pd64",
+                "text_pd65",
+                "text_pd66"
+              ]
+            },
+            "group_pd72": {
+              "type": "group",
+              "settings": {
+                "gap": 8,
+                "horizontal_alignment_flex_direction_column": "center",
+                "vertical_alignment_flex_direction_column": "flex-start",
+                "height": "fill",
+                "background_color": "#FFFFFF",
+                "border_radius": 24,
+                "padding-block-start": 32,
+                "padding-block-end": 32,
+                "padding-inline-start": 24,
+                "padding-inline-end": 24
+              },
+              "blocks": {
+                "text_pd67": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>03</p>",
+                    "type_preset": "custom",
+                    "font": "var(--font-accent--family)",
+                    "font_size": "3rem",
+                    "line_height": "tight",
+                    "text_color": "{{ settings.color_palette.color3 }}",
+                    "alignment": "center",
+                    "width": "100%"
+                  }
+                },
+                "text_pd68": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<h3>We deliver with care</h3>",
+                    "type_preset": "h4",
+                    "font": "var(--font-heading--family)",
+                    "alignment": "center",
+                    "width": "100%"
+                  }
+                },
+                "text_pd69": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Approve your photo on WhatsApp, then we deliver to their door.</p>",
+                    "type_preset": "paragraph",
+                    "alignment": "center",
+                    "width": "100%",
+                    "text_color": "{{ settings.color_palette.color1 }}"
+                  }
+                }
+              },
+              "block_order": [
+                "text_pd67",
+                "text_pd68",
+                "text_pd69"
+              ]
+            }
+          },
+          "block_order": [
+            "group_pd70",
+            "group_pd71",
+            "group_pd72"
+          ]
+        }
+      },
+      "block_order": [
+        "group_pd73",
+        "group_pd74"
+      ]
+    },
+    "faq": {
+      "type": "section",
+      "name": "FAQ",
+      "settings": {
+        "content_direction": "column",
+        "horizontal_alignment_flex_direction_column": "center",
+        "gap": 28,
+        "section_width": "page-width",
+        "background_color": "{{ settings.color_palette.background }}",
+        "padding-block-start": 64,
+        "padding-block-end": 72
+      },
+      "blocks": {
+        "group_pd88": {
+          "type": "group",
+          "settings": {
+            "gap": 6,
+            "horizontal_alignment_flex_direction_column": "center"
+          },
+          "blocks": {
+            "text_pd75": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Good to know</p>",
+                "type_preset": "custom",
+                "font": "var(--font-subheading--family)",
+                "font_size": "0.75rem",
+                "case": "uppercase",
+                "letter_spacing": "loose",
+                "text_color": "{{ settings.color_palette.color3 }}",
+                "alignment": "center"
+              }
+            },
+            "text_pd76": {
+              "type": "text",
+              "settings": {
+                "text": "<h2>Frequently asked questions</h2>",
+                "type_preset": "h3",
+                "font": "var(--font-heading--family)",
+                "alignment": "center"
+              }
+            }
+          },
+          "block_order": [
+            "text_pd75",
+            "text_pd76"
+          ]
+        },
+        "group_pd89": {
+          "type": "group",
+          "settings": {
+            "width": "custom",
+            "custom_width": 70,
+            "width_mobile": "fill"
+          },
+          "blocks": {
+            "accordion_pd87": {
+              "type": "accordion",
+              "settings": {
+                "icon": "plus",
+                "dividers": true,
+                "divider_color": "{{ settings.color_palette.color2 }}",
+                "type_preset": "h5"
+              },
+              "blocks": {
+                "accordion_row_pd82": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Do you offer same-day flower delivery in the UAE?"
+                  },
+                  "blocks": {
+                    "text_pd77": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Yes. Place your order before our daily same-day cut-off and we will deliver today to any address in Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah or Umm Al Quwain.</p>",
+                        "type_preset": "rte",
+                        "width": "100%",
+                        "text_color": "{{ settings.color_palette.color1 }}"
+                      }
+                    }
+                  },
+                  "block_order": [
+                    "text_pd77"
+                  ]
+                },
+                "accordion_row_pd83": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Can I choose a delivery time slot?"
+                  },
+                  "blocks": {
+                    "text_pd78": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>You can pick a preferred delivery window at checkout. We will do our best to arrive within your chosen slot.</p>",
+                        "type_preset": "rte",
+                        "width": "100%",
+                        "text_color": "{{ settings.color_palette.color1 }}"
+                      }
+                    }
+                  },
+                  "block_order": [
+                    "text_pd78"
+                  ]
+                },
+                "accordion_row_pd84": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Will I see my flowers before they are delivered?"
+                  },
+                  "blocks": {
+                    "text_pd79": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Every arrangement is photographed once it is ready, and we send the photo to you on WhatsApp before it leaves our studio.</p>",
+                        "type_preset": "rte",
+                        "width": "100%",
+                        "text_color": "{{ settings.color_palette.color1 }}"
+                      }
+                    }
+                  },
+                  "block_order": [
+                    "text_pd79"
+                  ]
+                },
+                "accordion_row_pd85": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Can I add a personal message?"
+                  },
+                  "blocks": {
+                    "text_pd80": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Of course. Add your message when you order and we will handwrite it on a complimentary card.</p>",
+                        "type_preset": "rte",
+                        "width": "100%",
+                        "text_color": "{{ settings.color_palette.color1 }}"
+                      }
+                    }
+                  },
+                  "block_order": [
+                    "text_pd80"
+                  ]
+                },
+                "accordion_row_pd86": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "How do I keep my flowers fresh for longer?"
+                  },
+                  "blocks": {
+                    "text_pd81": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Trim the stems at an angle, change the water every two days and keep the bouquet away from direct sunlight and air-conditioning vents.</p>",
+                        "type_preset": "rte",
+                        "width": "100%",
+                        "text_color": "{{ settings.color_palette.color1 }}"
+                      }
+                    }
+                  },
+                  "block_order": [
+                    "text_pd81"
+                  ]
+                }
+              },
+              "block_order": [
+                "accordion_row_pd82",
+                "accordion_row_pd83",
+                "accordion_row_pd84",
+                "accordion_row_pd85",
+                "accordion_row_pd86"
+              ]
+            }
+          },
+          "block_order": [
+            "accordion_pd87"
+          ]
+        }
+      },
+      "block_order": [
+        "group_pd88",
+        "group_pd89"
+      ]
     }
   },
   "order": [
-    "hero_jVaWmY",
-    "product_list_fa6P9H"
+    "hero_split",
+    "delivery_promise",
+    "shop_by_occasion",
+    "bestsellers",
+    "emirates_marquee",
+    "brand_story",
+    "shop_by_flower",
+    "add_ons",
+    "how_it_works",
+    "faq"
   ]
 }
