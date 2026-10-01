@@ -18,8 +18,16 @@
   endif
 %}
 
+{% liquid
+  # Express checkout skips the cart, where delivery details are collected.
+  assign delivery_details_required = false
+  if settings.delivery_enabled and settings.delivery_required
+    assign delivery_details_required = true
+  endif
+%}
+
 {% capture accelerated_checkout_button %}
-  {% if product != blank and form_obj != blank %}
+  {% if product != blank and form_obj != blank and delivery_details_required == false %}
     {{ form_obj | payment_button }}
   {% endif %}
 {% endcapture %}

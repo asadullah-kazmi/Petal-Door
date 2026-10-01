@@ -27,7 +27,7 @@
           "static": true,
           "settings": {
             "media_type": "image",
-            "link": "shopify://collections/all"
+            "link": "shopify://collections/best-sellers"
           }
         },
         "content": {
@@ -84,7 +84,7 @@
                   "type": "button",
                   "settings": {
                     "label": "Shop bestsellers",
-                    "link": "shopify://collections/all",
+                    "link": "shopify://collections/best-sellers",
                     "style_class": "button"
                   }
                 },
@@ -92,7 +92,7 @@
                   "type": "button",
                   "settings": {
                     "label": "Same-day delivery",
-                    "link": "shopify://collections/all",
+                    "link": "shopify://collections/same-day-delivery",
                     "style_class": "button-secondary"
                   }
                 }
@@ -445,7 +445,16 @@
         "header"
       ],
       "settings": {
-        "collection_list": [],
+        "collection_list": [
+          "birthday",
+          "love-romance",
+          "anniversary",
+          "new-baby",
+          "get-well-soon",
+          "congratulations",
+          "thank-you",
+          "sympathy"
+        ],
         "layout_type": "carousel",
         "carousel_on_mobile": true,
         "columns": 6,
@@ -533,7 +542,7 @@
               "type": "button",
               "settings": {
                 "label": "View all",
-                "link": "shopify://collections/all",
+                "link": "shopify://collections/best-sellers",
                 "style_class": "button-unstyled"
               }
             }
@@ -631,7 +640,7 @@
       },
       "name": "Our bestsellers",
       "settings": {
-        "collection": "all",
+        "collection": "best-sellers",
         "layout_type": "grid",
         "carousel_on_mobile": false,
         "max_products": 8,
@@ -1008,7 +1017,13 @@
         "header"
       ],
       "settings": {
-        "collection_list": [],
+        "collection_list": [
+          "roses",
+          "peonies",
+          "orchids",
+          "mixed-bouquets",
+          "plants"
+        ],
         "layout_type": "grid",
         "carousel_on_mobile": true,
         "columns": 5,
@@ -1095,7 +1110,7 @@
               "type": "button",
               "settings": {
                 "label": "View all",
-                "link": "shopify://collections/all",
+                "link": "shopify://collections/add-ons",
                 "style_class": "button-unstyled"
               }
             }
@@ -1193,7 +1208,7 @@
       },
       "name": "Cakes, chocolates & balloons",
       "settings": {
-        "collection": "all",
+        "collection": "add-ons",
         "layout_type": "carousel",
         "carousel_on_mobile": false,
         "max_products": 8,
