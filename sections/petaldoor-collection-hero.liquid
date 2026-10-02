@@ -1,0 +1,175 @@
+<section class="petaldoor-collection-hero" aria-labelledby="CollectionHeading-{{ section.id }}">
+  <div class="petaldoor-collection-hero__inner">
+    <div class="petaldoor-collection-hero__copy">
+      <p class="petaldoor-collection-hero__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      <h1 id="CollectionHeading-{{ section.id }}">{{ collection.title | escape }}</h1>
+      {% if collection.description != blank %}
+        <div class="petaldoor-collection-hero__description rte">{{ collection.description }}</div>
+      {% else %}
+        <p class="petaldoor-collection-hero__description">
+          Thoughtful flowers and gifts, made fresh in Dubai and delivered across the UAE.
+        </p>
+      {% endif %}
+    </div>
+
+    <div class="petaldoor-collection-hero__aside" aria-label="PetalDoor delivery promise">
+      <span class="petaldoor-collection-hero__count">{{ collection.products_count }} pieces</span>
+      <span class="petaldoor-collection-hero__promise">
+        <span aria-hidden="true">✦</span>
+        Same-day delivery available
+      </span>
+    </div>
+  </div>
+
+  {% if section.settings.show_navigation %}
+    <nav class="petaldoor-collection-nav" aria-label="Shop flower collections">
+      <a href="{{ routes.all_products_collection_url }}"{% if collection.handle == 'all' %} aria-current="page"{% endif %}>All</a>
+      <a href="{{ routes.collections_url }}/best-sellers"{% if collection.handle == 'best-sellers' %} aria-current="page"{% endif %}>Bestsellers</a>
+      <a href="{{ routes.collections_url }}/same-day-delivery"{% if collection.handle == 'same-day-delivery' %} aria-current="page"{% endif %}>Same-day</a>
+      <a href="{{ routes.collections_url }}/roses"{% if collection.handle == 'roses' %} aria-current="page"{% endif %}>Roses</a>
+      <a href="{{ routes.collections_url }}/mixed-bouquets"{% if collection.handle == 'mixed-bouquets' %} aria-current="page"{% endif %}>Bouquets</a>
+      <a href="{{ routes.collections_url }}/plants"{% if collection.handle == 'plants' %} aria-current="page"{% endif %}>Plants</a>
+      <a href="{{ routes.collections_url }}/add-ons"{% if collection.handle == 'add-ons' %} aria-current="page"{% endif %}>Gifts & extras</a>
+    </nav>
+  {% endif %}
+</section>
+
+{% stylesheet %}
+  .petaldoor-collection-hero {
+    background:
+      radial-gradient(circle at 86% 18%, rgb(173 63 91 / 11%), transparent 24%),
+      #f8e9e9;
+    border-bottom: 1px solid rgb(47 32 36 / 9%);
+    padding: clamp(54px, 7vw, 96px) 0 0;
+  }
+
+  .petaldoor-collection-hero__inner {
+    align-items: flex-end;
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+    margin-inline: auto;
+    max-width: var(--page-width);
+    padding-inline: var(--page-margin);
+  }
+
+  .petaldoor-collection-hero__copy { max-width: 760px; }
+
+  .petaldoor-collection-hero__eyebrow {
+    color: #ad3f5b;
+    font-family: var(--font-subheading--family);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    margin: 0 0 16px;
+    text-transform: uppercase;
+  }
+
+  .petaldoor-collection-hero h1 {
+    color: #2f2024;
+    font-family: var(--font-heading--family);
+    font-size: clamp(3.4rem, 6.5vw, 6.5rem);
+    font-weight: 400;
+    letter-spacing: -0.045em;
+    line-height: 0.95;
+    margin: 0;
+  }
+
+  .petaldoor-collection-hero__description {
+    color: #69565c;
+    font-size: 1rem;
+    line-height: 1.65;
+    margin: 22px 0 0;
+    max-width: 620px;
+  }
+
+  .petaldoor-collection-hero__description p { margin: 0; }
+
+  .petaldoor-collection-hero__aside {
+    align-items: flex-end;
+    color: #69565c;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.78rem;
+    gap: 10px;
+    padding-bottom: 6px;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .petaldoor-collection-hero__count { text-transform: uppercase; letter-spacing: 0.1em; }
+
+  .petaldoor-collection-hero__promise {
+    align-items: center;
+    color: #2f2024;
+    display: flex;
+    font-weight: 600;
+    gap: 7px;
+  }
+
+  .petaldoor-collection-hero__promise span { color: #ad3f5b; }
+
+  .petaldoor-collection-nav {
+    display: flex;
+    gap: 8px;
+    margin-inline: auto;
+    margin-top: clamp(38px, 5vw, 64px);
+    max-width: var(--page-width);
+    overflow-x: auto;
+    padding: 0 var(--page-margin) 18px;
+    scrollbar-width: none;
+  }
+
+  .petaldoor-collection-nav::-webkit-scrollbar { display: none; }
+
+  .petaldoor-collection-nav a {
+    border: 1px solid rgb(47 32 36 / 15%);
+    border-radius: 999px;
+    color: #2f2024;
+    flex: 0 0 auto;
+    font-size: 0.82rem;
+    padding: 9px 16px;
+    text-decoration: none;
+    transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+  }
+
+  .petaldoor-collection-nav a:hover,
+  .petaldoor-collection-nav a[aria-current='page'] {
+    background: #ad3f5b;
+    border-color: #ad3f5b;
+    color: #fff;
+  }
+
+  @media screen and (max-width: 749px) {
+    .petaldoor-collection-hero { padding-top: 48px; }
+    .petaldoor-collection-hero__inner { align-items: flex-start; flex-direction: column; gap: 26px; }
+    .petaldoor-collection-hero h1 { font-size: clamp(3.25rem, 17vw, 5rem); }
+    .petaldoor-collection-hero__aside { align-items: flex-start; text-align: left; }
+    .petaldoor-collection-nav { margin-top: 34px; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "PetalDoor collection hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Fresh from our floral studio"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_navigation",
+      "label": "Show collection shortcuts",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "PetalDoor collection hero"
+    }
+  ]
+}
+{% endschema %}
