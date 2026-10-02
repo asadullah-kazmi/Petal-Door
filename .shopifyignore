@@ -1,10 +1,10 @@
 # Local development files should never be uploaded as theme assets.
-.git/
-.github/
-.vscode/
-.claude/
-.shopify/
-node_modules/
+.git/*
+.github/*
+.vscode/*
+.claude/*
+.shopify/*
+node_modules/*
 .env
 .env.*
 .gitignore
@@ -14,4 +14,3 @@ README.md
 package.json
 package-lock.json
 shopify.theme.toml
-

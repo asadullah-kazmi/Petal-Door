@@ -9,109 +9,18 @@
  */{
   "sections": {
     "hero_split": {
-      "type": "media-with-content",
+      "type": "petaldoor-hero",
       "name": "Hero",
       "settings": {
-        "media_position": "right",
-        "media_width": "wide",
-        "media_height": "60svh",
-        "section_width": "full-width",
-        "extend_media": true,
-        "background_color": "{{ settings.color_palette.color4 }}",
-        "padding-block-start": 0,
-        "padding-block-end": 0
-      },
-      "blocks": {
-        "media": {
-          "type": "_media-without-appearance",
-          "static": true,
-          "settings": {
-            "media_type": "image",
-            "link": "shopify://collections/best-sellers"
-          }
-        },
-        "content": {
-          "type": "_content-without-appearance",
-          "static": true,
-          "settings": {
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 20
-          },
-          "blocks": {
-            "text_pd03": {
-              "type": "text",
-              "settings": {
-                "text": "<p>Same-day delivery · All 7 Emirates</p>",
-                "type_preset": "custom",
-                "font": "var(--font-subheading--family)",
-                "font_size": "0.75rem",
-                "case": "uppercase",
-                "letter_spacing": "loose",
-                "text_color": "{{ settings.color_palette.color3 }}"
-              }
-            },
-            "text_pd04": {
-              "type": "text",
-              "settings": {
-                "text": "<h1>Flowers that say it <em>beautifully</em></h1>",
-                "type_preset": "h1",
-                "font": "var(--font-heading--family)",
-                "max_width": "narrow",
-                "wrap": "balance"
-              }
-            },
-            "text_pd05": {
-              "type": "text",
-              "settings": {
-                "text": "<p>Hand-tied bouquets and luxury arrangements, crafted fresh every morning in Dubai and delivered to their door — with a photo sent to you before we ring the bell.</p>",
-                "type_preset": "paragraph",
-                "max_width": "narrow",
-                "text_color": "{{ settings.color_palette.color1 }}"
-              }
-            },
-            "group_pd06": {
-              "type": "group",
-              "settings": {
-                "content_direction": "row",
-                "vertical_on_mobile": false,
-                "gap": 12,
-                "width": "fit-content",
-                "padding-block-start": 8
-              },
-              "blocks": {
-                "button_pd01": {
-                  "type": "button",
-                  "settings": {
-                    "label": "Shop bestsellers",
-                    "link": "shopify://collections/best-sellers",
-                    "style_class": "button"
-                  }
-                },
-                "button_pd02": {
-                  "type": "button",
-                  "settings": {
-                    "label": "Same-day delivery",
-                    "link": "shopify://collections/same-day-delivery",
-                    "style_class": "button-secondary"
-                  }
-                }
-              },
-              "block_order": [
-                "button_pd01",
-                "button_pd02"
-              ]
-            }
-          },
-          "block_order": [
-            "text_pd03",
-            "text_pd04",
-            "text_pd05",
-            "group_pd06"
-          ]
-        }
-      },
-      "block_order": []
+        "eyebrow": "Same-day delivery · All 7 Emirates",
+        "heading": "Flowers that say it <em>beautifully</em>",
+        "text": "<p>Hand-tied bouquets and luxury arrangements, crafted fresh every morning in Dubai and delivered to their door — with a photo sent to you before we ring the bell.</p>",
+        "primary_label": "Shop bestsellers",
+        "primary_link": "shopify://collections/best-sellers",
+        "secondary_label": "Shop by occasion",
+        "secondary_link": "shopify://collections/all",
+        "image_alt": "Luxury bouquet of roses, peonies and orchids arranged in a sculptural vase"
+      }
     },
     "delivery_promise": {
       "type": "section",

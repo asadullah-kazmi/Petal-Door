@@ -1,0 +1,278 @@
+<section class="petaldoor-hero" aria-labelledby="PetalDoorHeroHeading-{{ section.id }}">
+  <div class="petaldoor-hero__content">
+    <p class="petaldoor-hero__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+    <h1 id="PetalDoorHeroHeading-{{ section.id }}" class="petaldoor-hero__heading">
+      {{ section.settings.heading }}
+    </h1>
+    <div class="petaldoor-hero__text rte">{{ section.settings.text }}</div>
+
+    <div class="petaldoor-hero__actions">
+      {% if section.settings.primary_label != blank %}
+        <a class="button petaldoor-hero__primary" href="{{ section.settings.primary_link }}">
+          {{ section.settings.primary_label | escape }}
+        </a>
+      {% endif %}
+      {% if section.settings.secondary_label != blank %}
+        <a class="petaldoor-hero__secondary" href="{{ section.settings.secondary_link }}">
+          {{ section.settings.secondary_label | escape }}
+          <span aria-hidden="true">→</span>
+        </a>
+      {% endif %}
+    </div>
+
+    <ul class="petaldoor-hero__proof" role="list">
+      <li><span aria-hidden="true">✦</span> Made fresh today</li>
+      <li><span aria-hidden="true">✦</span> Photo before delivery</li>
+      <li><span aria-hidden="true">✦</span> Handwritten card included</li>
+    </ul>
+  </div>
+
+  <a class="petaldoor-hero__media" href="{{ section.settings.primary_link }}" aria-label="{{ section.settings.primary_label | escape }}">
+    <img
+      src="{{ 'petaldoor-hero-v1.png' | asset_url }}"
+      alt="{{ section.settings.image_alt | escape }}"
+      width="1680"
+      height="945"
+      fetchpriority="high"
+    >
+    <span class="petaldoor-hero__media-label">
+      <strong>Curated by hand</strong>
+      <small>Delivered across the UAE</small>
+    </span>
+  </a>
+</section>
+
+{% stylesheet %}
+  .petaldoor-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+    min-height: clamp(620px, 74svh, 820px);
+    background: #f8e9e9;
+    overflow: hidden;
+  }
+
+  .petaldoor-hero__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(52px, 7vw, 112px) clamp(28px, 5vw, 88px);
+    position: relative;
+    z-index: 1;
+  }
+
+  .petaldoor-hero__eyebrow {
+    color: #ad3f5b;
+    font-family: var(--font-subheading--family);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    line-height: 1.4;
+    margin: 0 0 22px;
+    text-transform: uppercase;
+  }
+
+  .petaldoor-hero__heading {
+    color: #2f2024;
+    font-family: var(--font-heading--family);
+    font-size: clamp(3.5rem, 5.5vw, 6.8rem);
+    font-weight: 400;
+    letter-spacing: -0.045em;
+    line-height: 0.91;
+    margin: 0;
+    max-width: 8.4ch;
+    text-wrap: balance;
+  }
+
+  .petaldoor-hero__heading em {
+    color: #ad3f5b;
+    font-weight: 400;
+  }
+
+  .petaldoor-hero__text {
+    color: #69565c;
+    font-size: clamp(1rem, 1.25vw, 1.125rem);
+    line-height: 1.65;
+    margin-top: 28px;
+    max-width: 520px;
+  }
+
+  .petaldoor-hero__text p { margin: 0; }
+
+  .petaldoor-hero__actions {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 34px;
+  }
+
+  .petaldoor-hero__primary {
+    background: #ad3f5b;
+    border-color: #ad3f5b;
+    min-width: 176px;
+  }
+
+  .petaldoor-hero__primary:hover {
+    background: #913149;
+    border-color: #913149;
+  }
+
+  .petaldoor-hero__secondary {
+    align-items: center;
+    color: #2f2024;
+    display: inline-flex;
+    font-weight: 600;
+    gap: 9px;
+    text-decoration: none;
+  }
+
+  .petaldoor-hero__secondary span { transition: transform 180ms ease; }
+  .petaldoor-hero__secondary:hover span { transform: translateX(4px); }
+
+  .petaldoor-hero__proof {
+    color: #69565c;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 0.75rem;
+    gap: 10px 18px;
+    list-style: none;
+    margin: 40px 0 0;
+    padding: 0;
+  }
+
+  .petaldoor-hero__proof li { align-items: center; display: flex; gap: 7px; }
+  .petaldoor-hero__proof span { color: #ad3f5b; }
+
+  .petaldoor-hero__media {
+    display: block;
+    min-height: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .petaldoor-hero__media::after {
+    background: linear-gradient(90deg, rgb(47 32 36 / 8%), transparent 26%);
+    content: '';
+    inset: 0;
+    pointer-events: none;
+    position: absolute;
+  }
+
+  .petaldoor-hero__media img {
+    height: 100%;
+    object-fit: cover;
+    object-position: 58% center;
+    transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+    width: 100%;
+  }
+
+  .petaldoor-hero__media:hover img { transform: scale(1.018); }
+
+  .petaldoor-hero__media-label {
+    backdrop-filter: blur(12px);
+    background: rgb(255 250 247 / 86%);
+    bottom: 28px;
+    color: #2f2024;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    left: 28px;
+    padding: 14px 18px;
+    position: absolute;
+    z-index: 1;
+  }
+
+  .petaldoor-hero__media-label strong {
+    font-family: var(--font-heading--family);
+    font-size: 1.05rem;
+    font-weight: 500;
+  }
+
+  .petaldoor-hero__media-label small { color: #69565c; font-size: 0.72rem; }
+
+  @media screen and (max-width: 989px) {
+    .petaldoor-hero {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+
+    .petaldoor-hero__content { padding: 52px 28px 46px; }
+    .petaldoor-hero__heading { font-size: clamp(3.35rem, 15vw, 5.4rem); }
+    .petaldoor-hero__media { aspect-ratio: 4 / 3; min-height: 0; }
+    .petaldoor-hero__media img { object-position: 64% center; }
+  }
+
+  @media screen and (max-width: 549px) {
+    .petaldoor-hero__actions { align-items: stretch; flex-direction: column; gap: 18px; }
+    .petaldoor-hero__primary { width: 100%; }
+    .petaldoor-hero__secondary { justify-content: center; }
+    .petaldoor-hero__proof { display: grid; grid-template-columns: 1fr; margin-top: 30px; }
+    .petaldoor-hero__media-label { bottom: 16px; left: 16px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .petaldoor-hero__media img,
+    .petaldoor-hero__secondary span { transition: none; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "PetalDoor hero",
+  "tag": "section",
+  "class": "section-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Same-day delivery · All 7 Emirates"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Flowers that say it <em>beautifully</em>"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Hand-tied bouquets and luxury arrangements, crafted fresh every morning in Dubai and delivered with care.</p>"
+    },
+    {
+      "type": "text",
+      "id": "primary_label",
+      "label": "Primary button label",
+      "default": "Shop bestsellers"
+    },
+    {
+      "type": "url",
+      "id": "primary_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_label",
+      "label": "Secondary link label",
+      "default": "Shop by occasion"
+    },
+    {
+      "type": "url",
+      "id": "secondary_link",
+      "label": "Secondary link"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt text",
+      "default": "Luxury bouquet of roses, peonies and orchids arranged in a sculptural vase"
+    }
+  ],
+  "presets": [
+    {
+      "name": "PetalDoor hero"
+    }
+  ]
+}
+{% endschema %}
