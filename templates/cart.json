@@ -45,12 +45,12 @@
           "type": "_cart-summary",
           "static": true,
           "settings": {
-            "extend_summary": true,
+            "extend_summary": false,
             "background_color": "{{ settings.color_palette.color2 }}",
-            "border": "none",
+            "border": "solid",
             "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0
+            "border_opacity": 10,
+            "border_radius": 24
           },
           "blocks": {}
         }
@@ -105,8 +105,8 @@
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
-                "type_preset": "h4",
-                "font": "var(--font-body--family)",
+                "type_preset": "h3",
+                "font": "var(--font-heading--family)",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
@@ -146,7 +146,7 @@
           "name": "t:names.product_card",
           "static": true,
           "settings": {
-            "product_card_gap": 4,
+            "product_card_gap": 8,
             "border": "none",
             "border_width": 1,
             "border_opacity": 100,
@@ -161,11 +161,11 @@
               "type": "_product-card-gallery",
               "name": "t:names.product_card_media",
               "settings": {
-                "image_ratio": "adapt",
+                "image_ratio": "portrait",
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
-                "border_radius": 0,
+                "border_radius": 18,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -180,8 +180,8 @@
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
+                "type_preset": "h6",
+                "font": "var(--font-heading--family)",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
@@ -235,16 +235,16 @@
         "columns": 4,
         "mobile_columns": "2",
         "mobile_card_size": "60cqw",
-        "columns_gap": 8,
-        "rows_gap": 24,
+        "columns_gap": 22,
+        "rows_gap": 32,
         "icons_style": "arrow",
         "icons_shape": "none",
         "section_width": "page-width",
         "horizontal_alignment": "flex-start",
         "gap": 28,
         "background_color": "{{ settings.color_palette.background }}",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-start": 64,
+        "padding-block-end": 72
       }
     }
   },
