@@ -44,6 +44,24 @@
   font-size: 1.35rem;
 }
 
+.cart-page--empty {
+  background:
+    radial-gradient(circle at 50% 35%, rgb(242 220 221 / 92%), transparent 40%),
+    #fff8f5;
+  border-radius: 24px;
+  min-height: 52vh;
+  padding: clamp(44px, 8vw, 90px) 24px;
+}
+
+.cart-page--empty .cart-title h1 {
+  font-family: var(--font-heading--family);
+  font-size: clamp(2.8rem, 6vw, 5rem);
+}
+
+.cart-page--empty .cart-items__empty-button {
+  border-radius: 999px;
+}
+
 @media screen and (min-width: 750px) {
   .cart-page {
     align-items: start;
