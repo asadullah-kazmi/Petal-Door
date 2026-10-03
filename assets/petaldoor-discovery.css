@@ -1,0 +1,47 @@
+.shopify-section[id*='search'] .section,
+.shopify-section[id*='collection_list'] .section {
+  background:
+    radial-gradient(circle at 88% 10%, rgb(173 63 91 / 9%), transparent 22%),
+    var(--color-background);
+}
+
+.shopify-section[id*='search'] h1,
+.shopify-section[id*='collection_list'] h1,
+.shopify-section[id*='main-404'] h1 {
+  color: #2f2024;
+  font-family: var(--font-heading--family);
+  font-size: clamp(3rem, 6vw, 6rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 0.96;
+}
+
+.shopify-section[id*='search'] input[type='search'] {
+  background: #fff;
+  border-color: rgb(47 32 36 / 14%);
+  border-radius: 999px;
+  box-shadow: 0 14px 36px rgb(47 32 36 / 7%);
+  min-height: 58px;
+}
+
+.shopify-section[id*='search'] .product-card__content,
+.shopify-section[id*='collection_list'] .collection-card__content {
+  padding-top: 8px;
+}
+
+.shopify-section[id*='main-404'] .section {
+  background:
+    radial-gradient(circle at 50% 42%, rgb(242 220 221 / 90%), transparent 42%),
+    #fff8f5;
+}
+
+.shopify-section[id*='main-404'] .button {
+  border-radius: 999px;
+  min-width: 190px;
+}
+
+@media screen and (max-width: 749px) {
+  .shopify-section[id*='search'] input[type='search'] {
+    min-height: 52px;
+  }
+}
