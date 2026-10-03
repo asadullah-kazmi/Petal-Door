@@ -24,10 +24,31 @@
     {%- render 'scripts' -%}
     {%- render 'theme-styles-variables' -%}
     {%- render 'color-palette' -%}
-    {{ 'petaldoor-catalog.css' | asset_url | stylesheet_tag }}
-    {{ 'petaldoor-cart.css' | asset_url | stylesheet_tag }}
-    {{ 'petaldoor-discovery.css' | asset_url | stylesheet_tag }}
-    {{ 'petaldoor-content.css' | asset_url | stylesheet_tag }}
+    {% if request.page_type == 'collection' %}
+      {{ 'petaldoor-catalog.css' | asset_url | stylesheet_tag }}
+    {% elsif request.page_type == 'cart' %}
+      {{ 'petaldoor-cart.css' | asset_url | stylesheet_tag }}
+    {% elsif request.page_type == 'search' or request.page_type == 'list-collections' or request.page_type == '404' %}
+      {{ 'petaldoor-discovery.css' | asset_url | stylesheet_tag }}
+    {% elsif request.page_type == 'page' or request.page_type == 'blog' or request.page_type == 'article' %}
+      {{ 'petaldoor-content.css' | asset_url | stylesheet_tag }}
+    {% endif %}
+
+    {% if request.page_type == 'index' %}
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": {{ shop.name | json }},
+          "url": {{ request.origin | append: routes.root_url | json }},
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "{{ request.origin }}{{ routes.search_url }}?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        }
+      </script>
+    {% endif %}
 
     {% if request.design_mode %}
       {%- render 'theme-editor' -%}

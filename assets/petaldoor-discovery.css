@@ -45,3 +45,12 @@
     min-height: 52px;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .shopify-section[id*='search'] *,
+  .shopify-section[id*='collection_list'] *,
+  .shopify-section[id*='main-404'] * {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

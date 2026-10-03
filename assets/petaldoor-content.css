@@ -47,3 +47,12 @@
     width: 100%;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .petaldoor-contact-support *,
+  .shopify-section[id*='main-blog'] *,
+  .shopify-section[id*='main-blog-post'] * {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
