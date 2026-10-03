@@ -19,8 +19,8 @@
             "width": "100%",
             "max_width": "normal",
             "alignment": "center",
-            "type_preset": "h2",
-            "font": "var(--font-body--family)",
+            "type_preset": "h1",
+            "font": "var(--font-heading--family)",
             "line_height": "normal",
             "letter_spacing": "normal",
             "case": "none",
@@ -68,8 +68,15 @@
         "content_direction": "column",
         "gap": 32,
         "background_color": "{{ settings.color_palette.background }}",
-        "padding-block-start": 40,
-        "padding-block-end": 0
+        "padding-block-start": 64,
+        "padding-block-end": 56
+      }
+    },
+    "support_guide": {
+      "type": "petaldoor-contact-support",
+      "settings": {
+        "eyebrow": "How can we help?",
+        "heading": "A little detail helps us help you"
       }
     },
     "form": {
@@ -79,7 +86,7 @@
           "type": "contact-form",
           "settings": {
             "width": "custom",
-            "custom_width": 50,
+            "custom_width": 65,
             "width_mobile": "custom",
             "custom_width_mobile": 100,
             "input_style": "default",
@@ -133,13 +140,14 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 32,
+        "padding-block-start": 64,
         "padding-block-end": 84
       }
     }
   },
   "order": [
     "main",
+    "support_guide",
     "form"
   ]
 }

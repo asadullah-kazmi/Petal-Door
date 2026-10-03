@@ -1,0 +1,115 @@
+<section class="petaldoor-contact-support" aria-labelledby="ContactSupport-{{ section.id }}">
+  <div class="petaldoor-contact-support__inner">
+    <p class="petaldoor-contact-support__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+    <h2 id="ContactSupport-{{ section.id }}">{{ section.settings.heading | escape }}</h2>
+    <div class="petaldoor-contact-support__grid">
+      <article>
+        <span aria-hidden="true">01</span>
+        <h3>Delivery help</h3>
+        <p>Share the order number, delivery date and emirate so we can help quickly.</p>
+      </article>
+      <article>
+        <span aria-hidden="true">02</span>
+        <h3>Custom requests</h3>
+        <p>Tell us the occasion, colour palette and budget for a tailored recommendation.</p>
+      </article>
+      <article>
+        <span aria-hidden="true">03</span>
+        <h3>Product questions</h3>
+        <p>Send the arrangement name and any preferences before placing your order.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .petaldoor-contact-support {
+    background: #f8e9e9;
+    border-block: 1px solid rgb(47 32 36 / 8%);
+    padding: clamp(46px, 6vw, 76px) var(--page-margin);
+  }
+
+  .petaldoor-contact-support__inner {
+    margin-inline: auto;
+    max-width: var(--page-width);
+  }
+
+  .petaldoor-contact-support__eyebrow {
+    color: #ad3f5b;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    margin: 0 0 14px;
+    text-transform: uppercase;
+  }
+
+  .petaldoor-contact-support h2 {
+    color: #2f2024;
+    font-family: var(--font-heading--family);
+    font-size: clamp(2.2rem, 4vw, 4rem);
+    font-weight: 400;
+    letter-spacing: -0.035em;
+    margin: 0;
+  }
+
+  .petaldoor-contact-support__grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: clamp(30px, 4vw, 48px);
+  }
+
+  .petaldoor-contact-support article {
+    background: rgb(255 255 255 / 66%);
+    border: 1px solid rgb(47 32 36 / 9%);
+    border-radius: 18px;
+    padding: 26px;
+  }
+
+  .petaldoor-contact-support article span {
+    color: #ad3f5b;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+  }
+
+  .petaldoor-contact-support article h3 {
+    color: #2f2024;
+    font-family: var(--font-heading--family);
+    font-size: 1.35rem;
+    font-weight: 400;
+    margin: 28px 0 9px;
+  }
+
+  .petaldoor-contact-support article p {
+    color: #69565c;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 749px) {
+    .petaldoor-contact-support__grid { grid-template-columns: 1fr; }
+    .petaldoor-contact-support article h3 { margin-top: 16px; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "PetalDoor contact guide",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "How can we help?"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "A little detail helps us help you"
+    }
+  ],
+  "presets": [{ "name": "PetalDoor contact guide" }]
+}
+{% endschema %}

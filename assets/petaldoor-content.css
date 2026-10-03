@@ -1,0 +1,49 @@
+.template-page .main-page h1,
+.shopify-section[id*='main-blog'] h1,
+.shopify-section[id*='main-blog-post'] h1 {
+  color: #2f2024;
+  font-family: var(--font-heading--family);
+  font-size: clamp(3rem, 6vw, 6rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 0.96;
+}
+
+.shopify-section[id*='contact'] input,
+.shopify-section[id*='contact'] textarea,
+.shopify-section[id*='form'] input,
+.shopify-section[id*='form'] textarea {
+  background: #fff;
+  border-color: rgb(47 32 36 / 14%);
+  border-radius: 14px;
+}
+
+.shopify-section[id*='contact'] textarea,
+.shopify-section[id*='form'] textarea {
+  min-height: 170px;
+}
+
+.shopify-section[id*='contact'] .button,
+.shopify-section[id*='form'] .button {
+  border-radius: 999px;
+  min-width: 160px;
+}
+
+.shopify-section[id*='main-blog'] img,
+.shopify-section[id*='main-blog-post'] img {
+  border-radius: 18px;
+}
+
+.shopify-section[id*='main-blog-post'] .rte,
+.shopify-section[id*='main-page'] .rte {
+  color: #4f4145;
+  font-size: 1.06rem;
+  line-height: 1.75;
+}
+
+@media screen and (max-width: 749px) {
+  .shopify-section[id*='contact'] .button,
+  .shopify-section[id*='form'] .button {
+    width: 100%;
+  }
+}
