@@ -1044,6 +1044,26 @@
       "visible_if": "{{ block.settings.navigation_bar }}"
     },
     {
+      "type": "select",
+      "id": "drawer_font_size",
+      "label": "Mobile menu text size",
+      "options": [
+        {
+          "value": "md",
+          "label": "t:options.small"
+        },
+        {
+          "value": "xl",
+          "label": "t:options.medium"
+        },
+        {
+          "value": "2xl",
+          "label": "t:options.large"
+        }
+      ],
+      "default": "2xl"
+    },
+    {
       "type": "checkbox",
       "id": "drawer_accordion",
       "label": "t:settings.accordion",
