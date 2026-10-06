@@ -17,7 +17,7 @@
         "announcement_BxgCk9": {
           "type": "_announcement",
           "settings": {
-            "text": "Free same-day delivery across all 7 Emirates",
+            "text": "Free delivery on orders over AED 200 · Same-day across all 7 Emirates",
             "font": "var(--font-subheading--family)",
             "font_size": "0.75rem",
             "letter_spacing": "loose",

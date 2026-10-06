@@ -315,7 +315,7 @@
                     "text_pd02": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Free delivery<br>all 7 Emirates</p>",
+                        "text": "<p>Free delivery<br>over AED 200</p>",
                         "type_preset": "custom",
                         "width": "100%",
                         "font": "var(--font-body--family)",
@@ -452,7 +452,7 @@
                     "text_pd10": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Free same-day delivery to Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah and Umm Al Quwain when you order before our same-day cutoff. Choose your emirate, delivery date and time slot in the cart — exact-time delivery is available for a small fee.</p>",
+                        "text": "<p>Same-day delivery to Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah and Umm Al Quwain when you order before our same-day cutoff. Delivery is free on orders over AED 200, and AED 25 otherwise. Choose your emirate, delivery date and time slot in the cart.</p>",
                         "type_preset": "rte",
                         "width": "100%",
                         "text_color": "{{ settings.color_palette.color1 }}"

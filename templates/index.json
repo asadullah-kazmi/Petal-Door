@@ -62,7 +62,7 @@
                 "text_pd07": {
                   "type": "text",
                   "settings": {
-                    "text": "<h3>Free same-day delivery</h3>",
+                    "text": "<h3>Same-day delivery</h3>",
                     "type_preset": "h5",
                     "font": "var(--font-subheading--family)",
                     "alignment": "center",
@@ -72,7 +72,7 @@
                 "text_pd08": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Across Dubai, Abu Dhabi, Sharjah and all 7 Emirates.</p>",
+                    "text": "<p>Across all 7 Emirates. Free on orders over AED 200.</p>",
                     "type_preset": "paragraph",
                     "alignment": "center",
                     "width": "100%",
