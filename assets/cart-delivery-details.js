@@ -17,14 +17,12 @@ const DAY = 86_400_000;
  * @property {HTMLInputElement} date
  * @property {HTMLElement} dateError
  * @property {HTMLInputElement[]} slots
- * @property {HTMLTextAreaElement} message
- * @property {HTMLElement} charsLeft
  * @property {HTMLElement} error
  *
  * @extends {Component<DeliveryRefs>}
  */
 class CartDeliveryDetails extends Component {
-  requiredRefs = ['emirate', 'dateToday', 'dateTomorrow', 'dateOther', 'date', 'message', 'error'];
+  requiredRefs = ['emirate', 'dateToday', 'dateTomorrow', 'dateOther', 'date', 'error'];
 
   /** @type {number | undefined} */
   #saveTimer;
@@ -36,7 +34,6 @@ class CartDeliveryDetails extends Component {
     super.connectedCallback();
     this.#initDate();
     this.#refresh();
-    this.#updateCharsLeft();
     document.addEventListener('submit', this.#onSubmit, true);
   }
 
@@ -76,11 +73,6 @@ class CartDeliveryDetails extends Component {
   onChange() {
     this.#refresh();
     this.#save();
-  }
-
-  onMessageInput() {
-    this.#updateCharsLeft();
-    this.#save(800);
   }
 
   /* ---------- dates & slots ---------- */
@@ -172,13 +164,6 @@ class CartDeliveryDetails extends Component {
     return Boolean(emirate.value && date.value && !this.#isClosed(date.value) && date.value >= this.#minDate() && slot);
   }
 
-  #updateCharsLeft() {
-    const { message, charsLeft } = this.refs;
-    if (!charsLeft) return;
-    const left = message.maxLength - message.value.length;
-    charsLeft.textContent = (this.dataset.charsLeft || '[count]').replace('[count]', String(left));
-  }
-
   /* ---------- persistence & checkout guard ---------- */
 
   #attributes() {
@@ -188,7 +173,6 @@ class CartDeliveryDetails extends Component {
       'Delivery Emirate': this.refs.emirate.value,
       'Delivery Date': this.refs.date.value,
       'Delivery Time': slot?.value || '',
-      'Gift Message': this.refs.message.value,
       ...(updates ? { 'Order Updates': updates.value } : {}),
     };
   }

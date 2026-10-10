@@ -120,25 +120,6 @@
     </div>
   </fieldset>
 
-  <div class="delivery-details__step">
-    <label class="delivery-details__label" for="GiftMessage">{{ 'delivery.message_label' | t }}</label>
-    <textarea
-      id="GiftMessage"
-      class="delivery-details__textarea"
-      name="attributes[Gift Message]"
-      form="cart-form"
-      rows="3"
-      maxlength="{{ settings.gift_message_max }}"
-      placeholder="{{ 'delivery.message_placeholder' | t }}"
-      ref="message"
-      on:input="/onMessageInput"
-    >{{ attrs['Gift Message'] }}</textarea>
-    <p class="delivery-details__hint delivery-details__hint--row">
-      <span>{{ 'delivery.message_hint' | t }}</span>
-      <span ref="charsLeft" aria-live="polite"></span>
-    </p>
-  </div>
-
   {%- if settings.delivery_whatsapp_updates -%}
     <fieldset class="delivery-details__step">
       <legend class="delivery-details__label">{{ 'delivery.updates_label' | t }}</legend>
