@@ -24,7 +24,9 @@
     {%- render 'scripts' -%}
     {%- render 'theme-styles-variables' -%}
     {%- render 'color-palette' -%}
-    {% if request.page_type == 'collection' %}
+    {% if request.page_type == 'product' %}
+      {{ 'petaldoor-product.css' | asset_url | stylesheet_tag }}
+    {% elsif request.page_type == 'collection' %}
       {{ 'petaldoor-catalog.css' | asset_url | stylesheet_tag }}
     {% elsif request.page_type == 'cart' %}
       {{ 'petaldoor-cart.css' | asset_url | stylesheet_tag }}

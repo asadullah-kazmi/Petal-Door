@@ -195,8 +195,8 @@
             "variant_picker_R3rGDr": {
               "type": "variant-picker",
               "settings": {
-                "variant_style": "buttons",
-                "show_swatches": false,
+                "variant_style": "list",
+                "show_swatches": true,
                 "option_label_text_color": "",
                 "variant_style_class": "default",
                 "custom_variant_background": "{{ settings.color_palette.background }}",
@@ -513,11 +513,24 @@
                 "accordion_row_pd14",
                 "accordion_row_pd15"
               ]
+            },
+            "message_card_pd19": {
+              "type": "product-custom-property",
+              "settings": {
+                "property_heading": "Message card",
+                "property_description": "Add a free handwritten card. Leave empty to send without a message.",
+                "property_key": "Message card",
+                "input_type": "text",
+                "max_length": 200,
+                "required": false,
+                "placeholder_textarea": "Write your message here"
+              }
             }
           },
           "block_order": [
             "group_icgrde",
             "variant_picker_R3rGDr",
+            "message_card_pd19",
             "delivery_countdown_pd16",
             "buy_buttons_eYQEYi",
             "group_pd17",

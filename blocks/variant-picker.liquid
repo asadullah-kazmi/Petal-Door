@@ -32,6 +32,10 @@
         {
           "value": "buttons",
           "label": "t:options.buttons"
+        },
+        {
+          "value": "list",
+          "label": "List with prices"
         }
       ],
       "default": "buttons"
@@ -109,7 +113,7 @@
         }
       ],
       "default": "default",
-      "visible_if": "{{ block.settings.variant_style == 'buttons' }}"
+      "visible_if": "{{ block.settings.variant_style != 'dropdowns' }}"
     },
     {
       "type": "color",
@@ -117,7 +121,7 @@
       "label": "t:settings.background",
       "default": "{{ settings.color_palette.foreground }}",
       "alpha": true,
-      "visible_if": "{{ block.settings.variant_style == 'buttons' and block.settings.selected_variant_style_class == 'custom' }}"
+      "visible_if": "{{ block.settings.variant_style != 'dropdowns' and block.settings.selected_variant_style_class == 'custom' }}"
     },
     {
       "type": "color",
@@ -125,7 +129,7 @@
       "label": "t:settings.text",
       "default": "{{ settings.color_palette.background }}",
       "alpha": true,
-      "visible_if": "{{ block.settings.variant_style == 'buttons' and block.settings.selected_variant_style_class == 'custom' }}"
+      "visible_if": "{{ block.settings.variant_style != 'dropdowns' and block.settings.selected_variant_style_class == 'custom' }}"
     },
     {
       "type": "color",
@@ -133,7 +137,7 @@
       "label": "t:settings.borders",
       "default": "{{ settings.color_palette.foreground }}",
       "alpha": true,
-      "visible_if": "{{ block.settings.variant_style == 'buttons' and block.settings.selected_variant_style_class == 'custom' }}"
+      "visible_if": "{{ block.settings.variant_style != 'dropdowns' and block.settings.selected_variant_style_class == 'custom' }}"
     },
     {
       "type": "text_alignment",
