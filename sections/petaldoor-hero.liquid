@@ -1,4 +1,7 @@
-<section class="petaldoor-hero" aria-labelledby="PetalDoorHeroHeading-{{ section.id }}">
+<section
+  class="petaldoor-hero petaldoor-hero--{{ section.settings.layout | default: 'split' }}"
+  aria-labelledby="PetalDoorHeroHeading-{{ section.id }}"
+>
   <div class="petaldoor-hero__content">
     <p class="petaldoor-hero__eyebrow">{{ section.settings.eyebrow | escape }}</p>
     <h1 id="PetalDoorHeroHeading-{{ section.id }}" class="petaldoor-hero__heading">
@@ -28,13 +31,26 @@
   </div>
 
   <a class="petaldoor-hero__media" href="{{ section.settings.primary_link }}" aria-label="{{ section.settings.primary_label | escape }}">
-    <img
-      src="{{ 'petaldoor-hero-v1.png' | asset_url }}"
-      alt="{{ section.settings.image_alt | escape }}"
-      width="1680"
-      height="945"
-      fetchpriority="high"
-    >
+    {%- if section.settings.image != blank -%}
+      {{
+        section.settings.image
+        | image_url: width: 2400
+        | image_tag:
+          alt: section.settings.image_alt,
+          widths: '750, 1100, 1500, 1800, 2400',
+          sizes: '100vw',
+          fetchpriority: 'high',
+          loading: 'eager'
+      }}
+    {%- else -%}
+      <img
+        src="{{ 'petaldoor-hero-v1.png' | asset_url }}"
+        alt="{{ section.settings.image_alt | escape }}"
+        width="1680"
+        height="945"
+        fetchpriority="high"
+      >
+    {%- endif -%}
     <span class="petaldoor-hero__media-label">
       <strong>Curated by hand</strong>
       <small>Delivered across the UAE</small>
@@ -210,6 +226,65 @@
     .petaldoor-hero__media-label { bottom: 16px; left: 16px; }
   }
 
+  /* Full-width banner: photo fills the section, text sits centred over a light wash on the right */
+  .petaldoor-hero--banner {
+    display: block;
+    min-height: clamp(460px, 62svh, 640px);
+    position: relative;
+  }
+
+  .petaldoor-hero--banner .petaldoor-hero__media {
+    inset: 0;
+    position: absolute;
+  }
+
+  .petaldoor-hero--banner .petaldoor-hero__media::after {
+    background: linear-gradient(90deg, transparent 34%, rgb(247 246 242 / 78%) 64%, rgb(247 246 242 / 88%));
+  }
+
+  .petaldoor-hero--banner .petaldoor-hero__media-label { display: none; }
+
+  .petaldoor-hero--banner .petaldoor-hero__content {
+    align-items: center;
+    margin-inline-start: auto;
+    min-height: inherit;
+    pointer-events: none;
+    text-align: center;
+    width: min(46%, 600px);
+  }
+
+  .petaldoor-hero--banner .petaldoor-hero__content > * { pointer-events: auto; }
+
+  .petaldoor-hero--banner .petaldoor-hero__heading {
+    font-size: clamp(2.25rem, 3.4vw, 3.25rem);
+    letter-spacing: 0;
+    line-height: 1.1;
+    max-width: none;
+  }
+
+  .petaldoor-hero--banner .petaldoor-hero__heading em { font-style: normal; }
+
+  .petaldoor-hero--banner .petaldoor-hero__text {
+    font-style: italic;
+    margin-inline: auto;
+    max-width: 440px;
+  }
+
+  .petaldoor-hero--banner .petaldoor-hero__actions,
+  .petaldoor-hero--banner .petaldoor-hero__proof { justify-content: center; }
+
+  .petaldoor-hero--banner .petaldoor-hero__primary {
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  @media screen and (max-width: 989px) {
+    .petaldoor-hero--banner { display: flex; flex-direction: column-reverse; min-height: auto; }
+    .petaldoor-hero--banner .petaldoor-hero__media { aspect-ratio: 4 / 3; position: relative; }
+    .petaldoor-hero--banner .petaldoor-hero__media::after { display: none; }
+    .petaldoor-hero--banner .petaldoor-hero__content { min-height: 0; width: 100%; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .petaldoor-hero__media img,
     .petaldoor-hero__secondary span { transition: none; }
@@ -222,6 +297,28 @@
   "tag": "section",
   "class": "section-wrapper",
   "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "split",
+          "label": "Split: text beside image"
+        },
+        {
+          "value": "banner",
+          "label": "Full-width banner"
+        }
+      ],
+      "default": "split"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "Leave empty to use the built-in PetalDoor hero image."
+    },
     {
       "type": "text",
       "id": "eyebrow",

@@ -19,7 +19,8 @@
         "primary_link": "shopify://collections/best-sellers",
         "secondary_label": "Shop by occasion",
         "secondary_link": "shopify://collections/all",
-        "image_alt": "Luxury bouquet of roses, peonies and orchids arranged in a sculptural vase"
+        "image_alt": "Luxury bouquet of roses, peonies and orchids arranged in a sculptural vase",
+        "layout": "banner"
       }
     },
     "delivery_promise": {
