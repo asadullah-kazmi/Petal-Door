@@ -25,7 +25,7 @@ main[data-template^='collection'] .product-grid__card {
 main[data-template^='collection'] .product-card-gallery,
 main[data-template^='collection'] .card-gallery,
 main[data-template^='collection'] .product-media-container {
-  background: #f3eeea;
+  background: #efebe3;
   border-radius: 18px;
   overflow: hidden;
 }
@@ -41,7 +41,7 @@ main[data-template^='collection'] .product-media-container {
 }
 
 main[data-template^='collection'] .product-card .text-block {
-  color: #2f2024;
+  color: #1a1a1a;
 }
 
 main[data-template^='collection'] .product-card .text-block a {
