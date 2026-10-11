@@ -26,7 +26,7 @@ main[data-template^='collection'] .product-card-gallery,
 main[data-template^='collection'] .card-gallery,
 main[data-template^='collection'] .product-media-container {
   background: #efebe3;
-  border-radius: 18px;
+  border-radius: 0;
   overflow: hidden;
 }
 
@@ -53,7 +53,7 @@ main[data-template^='collection'] .product-card quick-add-component .button,
 main[data-template^='collection'] .product-card .quick-add__button {
   backdrop-filter: blur(8px);
   background: rgb(255 255 255 / 90%);
-  border-radius: 999px;
+  border-radius: 5px;
 }
 
 @media screen and (min-width: 750px) {
@@ -78,6 +78,6 @@ main[data-template^='collection'] .product-card .quick-add__button {
   main[data-template^='collection'] .product-card-gallery,
   main[data-template^='collection'] .card-gallery,
   main[data-template^='collection'] .product-media-container {
-    border-radius: 12px;
+    border-radius: 0;
   }
 }

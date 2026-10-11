@@ -14,3 +14,7 @@ README.md
 package.json
 package-lock.json
 shopify.theme.toml
+# Source artwork kept locally; Shopify assets can't live in subfolders
+assets/branding/*
+migration/*
+scripts/*
