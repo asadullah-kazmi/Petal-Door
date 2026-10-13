@@ -68,6 +68,7 @@
       assign block_settings = block.settings
       assign menu_content_type = block_settings.menu_style | default: 'text'
       assign image_border_radius = block_settings.image_border_radius
+      assign collection_image_ratio = block_settings.featured_collections_aspect_ratio | default: '16 / 9' | replace: 'adapt', 'auto'
 
       render 'contrast-override', background_color: block_settings.background_color, text_color: block_settings.text_color, section_id: block.id
 
@@ -160,7 +161,8 @@
                       grid_columns_count_collection_images: 8,
                       menu_content_type: menu_content_type,
                       content_aspect_ratio: ratio,
-                      image_border_radius: image_border_radius
+                      image_border_radius: image_border_radius,
+                      collection_image_ratio: collection_image_ratio
                     %}
                   </div>
                 </div>
@@ -672,7 +674,7 @@
   .mega-menu__link-image {
     width: 100%;
     position: relative;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: var(--menu-image-ratio, 16 / 9);
     margin-bottom: var(--padding-sm);
     object-fit: cover;
     border-radius: var(--menu-image-border-radius);
@@ -698,7 +700,7 @@
     content: '';
     display: block;
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: var(--menu-image-ratio, 16 / 9);
     margin-bottom: var(--padding-sm);
     background-color: var(--color-foreground-muted);
     opacity: 0.1;
@@ -1007,7 +1009,7 @@
         }
       ],
       "default": "16 / 9",
-      "visible_if": "{{ block.settings.menu_style == 'featured_collections' }}"
+      "visible_if": "{{ block.settings.menu_style == 'featured_collections' or block.settings.menu_style == 'collection_images' }}"
     },
     {
       "type": "range",

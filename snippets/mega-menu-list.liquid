@@ -9,6 +9,7 @@
   @param {string} [menu_content_type] - Type of content: 'featured_products', 'featured_collections', 'collection_images', or 'text'.
   @param {number} [content_aspect_ratio] - Aspect ratio for content images.
   @param {number} [image_border_radius] - Border radius for content images.
+  @param {string} [collection_image_ratio] - Aspect ratio for collection image tiles, e.g. '1 / 1'.
   @param {object} [section] - The section object.
 
   @example
@@ -74,7 +75,7 @@
 <ul
   data-menu-list-id="{{ id }}"
   class="mega-menu__list list-unstyled"
-  style="--menu-image-border-radius: {{ image_border_radius }}px;"
+  style="--menu-image-border-radius: {{ image_border_radius }}px; --menu-image-ratio: {{ collection_image_ratio | default: '16 / 9' }};"
 >
   {% for link in parent_link.links %}
     {% liquid

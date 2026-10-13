@@ -17,6 +17,7 @@
   assign block_settings = block.settings
   assign max_featured_items = 4
   assign image_border_radius = block_settings.image_border_radius
+  assign collection_image_ratio = block_settings.featured_collections_aspect_ratio | default: '16 / 9' | replace: 'adapt', 'auto'
 
   if block_settings.menu_style == 'featured_collections'
     assign ratio = block_settings.featured_collections_aspect_ratio
@@ -51,7 +52,7 @@
 
 <header-drawer
   class="header-drawer {{ class }}"
-  style="--menu-image-border-radius: {{ image_border_radius }}px; --resource-card-corner-radius: {{ image_border_radius }}px;"
+  style="--menu-image-border-radius: {{ image_border_radius }}px; --resource-card-corner-radius: {{ image_border_radius }}px; --menu-image-ratio: {{ collection_image_ratio }};"
 >
   <details
     id="Details-menu-drawer-container"
@@ -1196,7 +1197,7 @@
   .menu-drawer__link-image {
     width: 100%;
     position: relative;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: var(--menu-image-ratio, 16 / 9);
     object-fit: cover;
   }
 
@@ -1217,7 +1218,7 @@
     content: '';
     display: block;
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: var(--menu-image-ratio, 16 / 9);
     background-color: var(--color-foreground-muted);
     opacity: 0.1;
     border-radius: var(--menu-image-border-radius);
